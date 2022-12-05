@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.groupBoxforexistingemployee = new System.Windows.Forms.GroupBox();
             this.dview = new System.Windows.Forms.DataGridView();
             this.groupBoxforbutton = new System.Windows.Forms.GroupBox();
@@ -54,7 +54,7 @@
             this.lblremark = new System.Windows.Forms.Label();
             this.txtempid = new System.Windows.Forms.TextBox();
             this.lblreg = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.panelMain.SuspendLayout();
             this.groupBoxforexistingemployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dview)).BeginInit();
             this.groupBoxforbutton.SuspendLayout();
@@ -62,18 +62,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelMain
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.groupBoxforexistingemployee);
-            this.panel1.Controls.Add(this.groupBoxforbutton);
-            this.panel1.Controls.Add(this.groupBoxforregistration);
-            this.panel1.Controls.Add(this.lblreg);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1084, 613);
-            this.panel1.TabIndex = 0;
+            this.panelMain.BackColor = System.Drawing.Color.White;
+            this.panelMain.Controls.Add(this.groupBoxforexistingemployee);
+            this.panelMain.Controls.Add(this.groupBoxforbutton);
+            this.panelMain.Controls.Add(this.groupBoxforregistration);
+            this.panelMain.Controls.Add(this.lblreg);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(1084, 613);
+            this.panelMain.TabIndex = 0;
             // 
             // groupBoxforexistingemployee
             // 
@@ -346,11 +346,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 613);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelMain);
             this.Name = "frmteamregister";
             this.Text = "Team Management";
             this.Load += new System.EventHandler(this.frmteamregister_Load);
-            this.panel1.ResumeLayout(false);
+            this.panelMain.ResumeLayout(false);
             this.groupBoxforexistingemployee.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dview)).EndInit();
             this.groupBoxforbutton.ResumeLayout(false);
@@ -362,7 +362,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Label lblreg;
         private System.Windows.Forms.Label lblremark;
         private System.Windows.Forms.Label lblemail;

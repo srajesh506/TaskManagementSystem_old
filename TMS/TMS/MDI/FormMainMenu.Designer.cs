@@ -32,7 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             this.Sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.labelmenu = new System.Windows.Forms.Label();
+            this.lbllogout = new System.Windows.Forms.Label();
+            this.lblwelcome = new System.Windows.Forms.Label();
+            this.picemp = new System.Windows.Forms.PictureBox();
+            this.lblmenu = new System.Windows.Forms.Label();
             this.Menubutton = new System.Windows.Forms.PictureBox();
             this.HomeContainer = new System.Windows.Forms.Panel();
             this.panelTC = new System.Windows.Forms.Panel();
@@ -56,8 +59,6 @@
             this.btnTVTG = new System.Windows.Forms.Button();
             this.panelRanalysis = new System.Windows.Forms.Panel();
             this.btnreportanalysis = new System.Windows.Forms.Button();
-            this.panellogout = new System.Windows.Forms.Panel();
-            this.picboxlogout = new System.Windows.Forms.PictureBox();
             this.Sidebartimer = new System.Windows.Forms.Timer(this.components);
             this.paneltitlebar = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
@@ -71,6 +72,7 @@
             this.ReportTimer = new System.Windows.Forms.Timer(this.components);
             this.Sidebar.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picemp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Menubutton)).BeginInit();
             this.HomeContainer.SuspendLayout();
             this.panelTC.SuspendLayout();
@@ -84,8 +86,6 @@
             this.panelTGvsT.SuspendLayout();
             this.panelTvsTG.SuspendLayout();
             this.panelRanalysis.SuspendLayout();
-            this.panellogout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picboxlogout)).BeginInit();
             this.paneltitlebar.SuspendLayout();
             this.panelDesktopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxMDIImage)).BeginInit();
@@ -99,7 +99,6 @@
             this.Sidebar.Controls.Add(this.panelTS1);
             this.Sidebar.Controls.Add(this.panelTC1);
             this.Sidebar.Controls.Add(this.panelReportAnalysis);
-            this.Sidebar.Controls.Add(this.panellogout);
             this.Sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.Sidebar.Location = new System.Drawing.Point(0, 0);
             this.Sidebar.MaximumSize = new System.Drawing.Size(245, 678);
@@ -110,30 +109,72 @@
             // 
             // panelLogo
             // 
-            this.panelLogo.Controls.Add(this.labelmenu);
+            this.panelLogo.Controls.Add(this.lbllogout);
+            this.panelLogo.Controls.Add(this.lblwelcome);
+            this.panelLogo.Controls.Add(this.picemp);
+            this.panelLogo.Controls.Add(this.lblmenu);
             this.panelLogo.Controls.Add(this.Menubutton);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelLogo.Location = new System.Drawing.Point(3, 3);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(286, 77);
+            this.panelLogo.Size = new System.Drawing.Size(240, 120);
             this.panelLogo.TabIndex = 1;
             // 
-            // labelmenu
+            // lbllogout
             // 
-            this.labelmenu.AutoSize = true;
-            this.labelmenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelmenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelmenu.ForeColor = System.Drawing.Color.White;
-            this.labelmenu.Location = new System.Drawing.Point(65, 24);
-            this.labelmenu.Name = "labelmenu";
-            this.labelmenu.Size = new System.Drawing.Size(50, 21);
-            this.labelmenu.TabIndex = 2;
-            this.labelmenu.Text = "Menu";
+            this.lbllogout.AutoSize = true;
+            this.lbllogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbllogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbllogout.ForeColor = System.Drawing.Color.White;
+            this.lbllogout.Location = new System.Drawing.Point(68, 52);
+            this.lbllogout.Name = "lbllogout";
+            this.lbllogout.Size = new System.Drawing.Size(66, 21);
+            this.lbllogout.TabIndex = 5;
+            this.lbllogout.Text = "Logout?";
+            this.lbllogout.Click += new System.EventHandler(this.lbllogout_Click);
+            this.lbllogout.MouseEnter += new System.EventHandler(this.lbllogout_MouseEnter);
+            this.lbllogout.MouseLeave += new System.EventHandler(this.lbllogout_MouseLeave);
+            // 
+            // lblwelcome
+            // 
+            this.lblwelcome.AutoSize = true;
+            this.lblwelcome.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblwelcome.ForeColor = System.Drawing.Color.White;
+            this.lblwelcome.Location = new System.Drawing.Point(68, 6);
+            this.lblwelcome.Name = "lblwelcome";
+            this.lblwelcome.Size = new System.Drawing.Size(52, 21);
+            this.lblwelcome.TabIndex = 4;
+            this.lblwelcome.Text = "label1";
+            this.lblwelcome.MouseEnter += new System.EventHandler(this.lblwelcome_MouseEnter);
+            this.lblwelcome.MouseLeave += new System.EventHandler(this.lblwelcome_MouseLeave);
+            // 
+            // picemp
+            // 
+            this.picemp.Location = new System.Drawing.Point(4, 3);
+            this.picemp.Name = "picemp";
+            this.picemp.Size = new System.Drawing.Size(59, 59);
+            this.picemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picemp.TabIndex = 3;
+            this.picemp.TabStop = false;
+            // 
+            // lblmenu
+            // 
+            this.lblmenu.AutoSize = true;
+            this.lblmenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblmenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmenu.ForeColor = System.Drawing.Color.White;
+            this.lblmenu.Location = new System.Drawing.Point(68, 88);
+            this.lblmenu.Name = "lblmenu";
+            this.lblmenu.Size = new System.Drawing.Size(50, 21);
+            this.lblmenu.TabIndex = 2;
+            this.lblmenu.Text = "Menu";
+            this.lblmenu.MouseEnter += new System.EventHandler(this.labelmenu_MouseEnter);
+            this.lblmenu.MouseLeave += new System.EventHandler(this.labelmenu_MouseLeave);
             // 
             // Menubutton
             // 
             this.Menubutton.Image = ((System.Drawing.Image)(resources.GetObject("Menubutton.Image")));
-            this.Menubutton.Location = new System.Drawing.Point(1, 19);
+            this.Menubutton.Location = new System.Drawing.Point(4, 82);
             this.Menubutton.Name = "Menubutton";
             this.Menubutton.Size = new System.Drawing.Size(48, 30);
             this.Menubutton.TabIndex = 1;
@@ -146,7 +187,7 @@
             this.HomeContainer.Controls.Add(this.panelTC);
             this.HomeContainer.Controls.Add(this.panelTS);
             this.HomeContainer.Controls.Add(this.HomeChildContainer);
-            this.HomeContainer.Location = new System.Drawing.Point(3, 86);
+            this.HomeContainer.Location = new System.Drawing.Point(3, 129);
             this.HomeContainer.MaximumSize = new System.Drawing.Size(241, 143);
             this.HomeContainer.MinimumSize = new System.Drawing.Size(241, 56);
             this.HomeContainer.Name = "HomeContainer";
@@ -233,7 +274,7 @@
             this.btnmasterdata.Location = new System.Drawing.Point(-1, -1);
             this.btnmasterdata.Name = "btnmasterdata";
             this.btnmasterdata.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnmasterdata.Size = new System.Drawing.Size(243, 52);
+            this.btnmasterdata.Size = new System.Drawing.Size(245, 52);
             this.btnmasterdata.TabIndex = 2;
             this.btnmasterdata.Text = "             Master Data";
             this.btnmasterdata.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -243,7 +284,7 @@
             // panelTS1
             // 
             this.panelTS1.Controls.Add(this.btntasksheet);
-            this.panelTS1.Location = new System.Drawing.Point(3, 148);
+            this.panelTS1.Location = new System.Drawing.Point(3, 191);
             this.panelTS1.Name = "panelTS1";
             this.panelTS1.Size = new System.Drawing.Size(242, 37);
             this.panelTS1.TabIndex = 4;
@@ -255,10 +296,10 @@
             this.btntasksheet.ForeColor = System.Drawing.Color.White;
             this.btntasksheet.Image = ((System.Drawing.Image)(resources.GetObject("btntasksheet.Image")));
             this.btntasksheet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btntasksheet.Location = new System.Drawing.Point(-3, -8);
+            this.btntasksheet.Location = new System.Drawing.Point(-1, -8);
             this.btntasksheet.Name = "btntasksheet";
             this.btntasksheet.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btntasksheet.Size = new System.Drawing.Size(245, 50);
+            this.btntasksheet.Size = new System.Drawing.Size(245, 52);
             this.btntasksheet.TabIndex = 2;
             this.btntasksheet.Text = "             Task Sheet";
             this.btntasksheet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -268,7 +309,7 @@
             // panelTC1
             // 
             this.panelTC1.Controls.Add(this.btntaskcalender);
-            this.panelTC1.Location = new System.Drawing.Point(3, 191);
+            this.panelTC1.Location = new System.Drawing.Point(3, 234);
             this.panelTC1.Name = "panelTC1";
             this.panelTC1.Size = new System.Drawing.Size(242, 37);
             this.panelTC1.TabIndex = 2;
@@ -280,10 +321,10 @@
             this.btntaskcalender.ForeColor = System.Drawing.Color.White;
             this.btntaskcalender.Image = ((System.Drawing.Image)(resources.GetObject("btntaskcalender.Image")));
             this.btntaskcalender.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btntaskcalender.Location = new System.Drawing.Point(-3, -8);
+            this.btntaskcalender.Location = new System.Drawing.Point(-1, -8);
             this.btntaskcalender.Name = "btntaskcalender";
             this.btntaskcalender.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btntaskcalender.Size = new System.Drawing.Size(245, 50);
+            this.btntaskcalender.Size = new System.Drawing.Size(245, 52);
             this.btntaskcalender.TabIndex = 2;
             this.btntaskcalender.Text = "             Task Calender";
             this.btntaskcalender.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -298,7 +339,7 @@
             this.panelReportAnalysis.Controls.Add(this.panelTGvsT);
             this.panelReportAnalysis.Controls.Add(this.panelTvsTG);
             this.panelReportAnalysis.Controls.Add(this.panelRanalysis);
-            this.panelReportAnalysis.Location = new System.Drawing.Point(3, 234);
+            this.panelReportAnalysis.Location = new System.Drawing.Point(3, 277);
             this.panelReportAnalysis.MaximumSize = new System.Drawing.Size(241, 226);
             this.panelReportAnalysis.MinimumSize = new System.Drawing.Size(241, 54);
             this.panelReportAnalysis.Name = "panelReportAnalysis";
@@ -444,31 +485,12 @@
             this.btnreportanalysis.Location = new System.Drawing.Point(-1, -1);
             this.btnreportanalysis.Name = "btnreportanalysis";
             this.btnreportanalysis.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnreportanalysis.Size = new System.Drawing.Size(243, 52);
+            this.btnreportanalysis.Size = new System.Drawing.Size(245, 52);
             this.btnreportanalysis.TabIndex = 2;
             this.btnreportanalysis.Text = "             Report Analysis";
             this.btnreportanalysis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnreportanalysis.UseVisualStyleBackColor = false;
             this.btnreportanalysis.Click += new System.EventHandler(this.btnreportanalysis_Click);
-            // 
-            // panellogout
-            // 
-            this.panellogout.Controls.Add(this.picboxlogout);
-            this.panellogout.Location = new System.Drawing.Point(3, 294);
-            this.panellogout.Name = "panellogout";
-            this.panellogout.Size = new System.Drawing.Size(243, 389);
-            this.panellogout.TabIndex = 2;
-            // 
-            // picboxlogout
-            // 
-            this.picboxlogout.Image = ((System.Drawing.Image)(resources.GetObject("picboxlogout.Image")));
-            this.picboxlogout.Location = new System.Drawing.Point(3, 306);
-            this.picboxlogout.Name = "picboxlogout";
-            this.picboxlogout.Size = new System.Drawing.Size(58, 55);
-            this.picboxlogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picboxlogout.TabIndex = 0;
-            this.picboxlogout.TabStop = false;
-            this.picboxlogout.Click += new System.EventHandler(this.Logout_Click_1);
             // 
             // Sidebartimer
             // 
@@ -486,7 +508,7 @@
             this.paneltitlebar.Dock = System.Windows.Forms.DockStyle.Top;
             this.paneltitlebar.Location = new System.Drawing.Point(245, 0);
             this.paneltitlebar.Name = "paneltitlebar";
-            this.paneltitlebar.Size = new System.Drawing.Size(899, 80);
+            this.paneltitlebar.Size = new System.Drawing.Size(899, 65);
             this.paneltitlebar.TabIndex = 1;
             this.paneltitlebar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paneltitlebar_MouseDown);
             // 
@@ -544,7 +566,7 @@
             this.btnclosechildform.ForeColor = System.Drawing.Color.White;
             this.btnclosechildform.Location = new System.Drawing.Point(0, 0);
             this.btnclosechildform.Name = "btnclosechildform";
-            this.btnclosechildform.Size = new System.Drawing.Size(75, 80);
+            this.btnclosechildform.Size = new System.Drawing.Size(75, 65);
             this.btnclosechildform.TabIndex = 1;
             this.btnclosechildform.Text = "X";
             this.btnclosechildform.UseVisualStyleBackColor = true;
@@ -556,7 +578,7 @@
             this.labeltitle.AutoSize = true;
             this.labeltitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labeltitle.ForeColor = System.Drawing.Color.White;
-            this.labeltitle.Location = new System.Drawing.Point(371, 22);
+            this.labeltitle.Location = new System.Drawing.Point(371, 14);
             this.labeltitle.Name = "labeltitle";
             this.labeltitle.Size = new System.Drawing.Size(78, 26);
             this.labeltitle.TabIndex = 0;
@@ -566,9 +588,9 @@
             // 
             this.panelDesktopPanel.Controls.Add(this.picboxMDIImage);
             this.panelDesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktopPanel.Location = new System.Drawing.Point(245, 80);
+            this.panelDesktopPanel.Location = new System.Drawing.Point(245, 65);
             this.panelDesktopPanel.Name = "panelDesktopPanel";
-            this.panelDesktopPanel.Size = new System.Drawing.Size(899, 598);
+            this.panelDesktopPanel.Size = new System.Drawing.Size(899, 613);
             this.panelDesktopPanel.TabIndex = 2;
             this.panelDesktopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktopPanel_Paint);
             // 
@@ -578,7 +600,7 @@
             this.picboxMDIImage.Image = ((System.Drawing.Image)(resources.GetObject("picboxMDIImage.Image")));
             this.picboxMDIImage.Location = new System.Drawing.Point(0, 0);
             this.picboxMDIImage.Name = "picboxMDIImage";
-            this.picboxMDIImage.Size = new System.Drawing.Size(899, 598);
+            this.picboxMDIImage.Size = new System.Drawing.Size(899, 613);
             this.picboxMDIImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picboxMDIImage.TabIndex = 0;
             this.picboxMDIImage.TabStop = false;
@@ -609,6 +631,7 @@
             this.Sidebar.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picemp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Menubutton)).EndInit();
             this.HomeContainer.ResumeLayout(false);
             this.panelTC.ResumeLayout(false);
@@ -622,8 +645,6 @@
             this.panelTGvsT.ResumeLayout(false);
             this.panelTvsTG.ResumeLayout(false);
             this.panelRanalysis.ResumeLayout(false);
-            this.panellogout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picboxlogout)).EndInit();
             this.paneltitlebar.ResumeLayout(false);
             this.paneltitlebar.PerformLayout();
             this.panelDesktopPanel.ResumeLayout(false);
@@ -641,7 +662,7 @@
         private System.Windows.Forms.Button btntaskcalender;
         private System.Windows.Forms.Panel panelTS1;
         private System.Windows.Forms.Button btntasksheet;
-        private System.Windows.Forms.Label labelmenu;
+        private System.Windows.Forms.Label lblmenu;
         private System.Windows.Forms.PictureBox Menubutton;
         private System.Windows.Forms.Timer Sidebartimer;
         private System.Windows.Forms.Panel paneltitlebar;
@@ -670,8 +691,9 @@
         private System.Windows.Forms.Panel panelTG;
         private System.Windows.Forms.Button btnTG;
         private System.Windows.Forms.Timer ReportTimer;
-        private System.Windows.Forms.Panel panellogout;
-        private System.Windows.Forms.PictureBox picboxlogout;
         private System.Windows.Forms.PictureBox picboxMDIImage;
+        private System.Windows.Forms.Label lblwelcome;
+        private System.Windows.Forms.PictureBox picemp;
+        private System.Windows.Forms.Label lbllogout;
     }
 }

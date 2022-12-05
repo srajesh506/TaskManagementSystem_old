@@ -9,12 +9,12 @@ using System.Threading;
 
 namespace TMS
 {
-    public partial class Login : Form
+    public partial class LoginwithEmpid: Form
     {
         App_Code.CodeTMS obj = new App_Code.CodeTMS();
         string username, userrole, userid;
         waitformfunc waitform = new waitformfunc();
-        public Login()
+        public LoginwithEmpid()
         {
             
             InitializeComponent();
@@ -75,7 +75,7 @@ namespace TMS
             {
                 focustxtusername();
                 txtusername.Select();
-                MessageBox.Show("Please enter the User Name!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please enter Employee ID!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (txtpwd.Text == "")
@@ -92,10 +92,10 @@ namespace TMS
             }
             else
             {
-                MessageBox.Show("Invalid User or Password!!", "TMS", MessageBoxButtons.OK);
+                MessageBox.Show("Invalid Employee ID or Password!!", "TMS", MessageBoxButtons.OK);
             }
         }
-        public bool CheckLogin(string userid, string pwd)
+        public bool CheckLogin(string empid, string pwd)
         {
             string RoleName = "";
             int Roleid;
@@ -104,7 +104,7 @@ namespace TMS
             //App_Code.CodeTMS obj = new App_Code.CodeTMS();
             try
             {
-                dt = obj.checkuserexistence(userid, obj.encrypt(pwd));
+                dt = obj.checkuserexistence(empid, obj.encrypt(pwd));
                 if (dt.Rows.Count > 0)
                     RoleName = dt.Rows[0]["RoleName"].ToString();
             }
@@ -123,6 +123,21 @@ namespace TMS
             return false;
 
         }
+
+        private void txtusername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
         public void focustxtusername()
         {
             txtusername.BackColor = Color.White;

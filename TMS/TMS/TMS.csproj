@@ -114,18 +114,18 @@
     <Compile Include="Home\TaskSheet.Designer.cs">
       <DependentUpon>TaskSheet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\wait\Form1.cs">
+    <Compile Include="Home\wait\waiting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\wait\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Home\wait\waiting.Designer.cs">
+      <DependentUpon>waiting.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\wait\waitformfunc.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="LoginwithEmpid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="LoginwithEmpid.Designer.cs">
+      <DependentUpon>LoginwithEmpid.cs</DependentUpon>
     </Compile>
     <Compile Include="MDI\FormMainMenu.cs">
       <SubType>Form</SubType>
@@ -163,11 +163,11 @@
     <EmbeddedResource Include="Home\TaskSheet.resx">
       <DependentUpon>TaskSheet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\wait\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Home\wait\waiting.resx">
+      <DependentUpon>waiting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="LoginwithEmpid.resx">
+      <DependentUpon>LoginwithEmpid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\FormMainMenu.resx">
       <DependentUpon>FormMainMenu.cs</DependentUpon>

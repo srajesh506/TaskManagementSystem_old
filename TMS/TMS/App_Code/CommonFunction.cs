@@ -45,7 +45,7 @@ namespace TMS.App_Code
 
         }
         //Check User Existence from UserDetail Table
-        public DataTable checkuserexistence(string username, string password)
+        public DataTable checkuserexistence(string empid, string password)
         {
             if (Con.State == ConnectionState.Closed)
             { Con.Open(); }
@@ -53,7 +53,7 @@ namespace TMS.App_Code
             SqlDataAdapter adapter = new SqlDataAdapter();
             string selectcmd;
             DataSet ds = new DataSet();
-            selectcmd = "Select RoleName,Roleid,Isadmin from Userdetails where RoleName='" + username + "' and password='" + password + "'";
+            selectcmd = "Select RoleName,Roleid,Isadmin from Userdetails where empid='" + empid + "' and password='" + password + "'";
             cmd = new SqlCommand(selectcmd, Con);
             adapter.SelectCommand = cmd;
             adapter.Fill(ds);
@@ -139,6 +139,30 @@ namespace TMS.App_Code
                 maxid = 1;
             }
             return maxid;
+
+        }
+        public string GetEmpnameandID(string tablename, string fieldname,int empid)
+        {
+            var value="";
+
+            if (Con.State == ConnectionState.Closed)
+            {
+                Con.Open();
+            }
+            string selectcmd;
+            SqlDataAdapter Adapter = new SqlDataAdapter();
+            DataSet ds = new DataSet();
+            selectcmd = "Select Max(" + fieldname + ") maxid from " + tablename + " where empid="+ empid + "";
+            cmd = new SqlCommand(selectcmd, Con);
+            Adapter.SelectCommand = cmd;
+            Adapter.Fill(ds);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                value = ds.Tables[0].Rows[0]["maxid"].ToString();
+               
+
+            }
+            return value;
 
         }
         public DataSet GetDataFromTable(string Query)

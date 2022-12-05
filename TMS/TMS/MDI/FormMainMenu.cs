@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using TMS.Home.wait;
 using System.Threading;
-
+using System.IO;
 
 namespace TMS.MDI
 {
@@ -18,7 +18,8 @@ namespace TMS.MDI
         bool Reportcollaps = true;
         private Form activeForm;
         waitformfunc waitform = new waitformfunc();
-        public FormMainMenu()
+        App_Code.CodeTMS obj = new App_Code.CodeTMS();
+        public FormMainMenu(string  empid)
         {
             InitializeComponent();
             random = new Random();
@@ -26,6 +27,16 @@ namespace TMS.MDI
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            if (File.Exists(Application.StartupPath + "\\Image\\" + empid + ".jpg"))
+            {
+                picemp.Image = Image.FromFile(Application.StartupPath + "\\Image\\" + empid + ".jpg");
+                lblwelcome.Text = "Employee ID: " + empid +"\n"+"Welcome "+ obj.GetEmpnameandID("UserDetails","EmpName",int.Parse(empid)); 
+            }
+            else
+            {
+                picemp.Image = Image.FromFile(Application.StartupPath + "\\Image\\noimageMDI.png");
+                lblwelcome.Text = "Employee ID: " + empid + "\n" + "Welcome " + obj.GetEmpnameandID("UserDetails", "EmpName", int.Parse(empid));
+            }
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -330,10 +341,62 @@ namespace TMS.MDI
             waitform.Show(this);
             Thread.Sleep(2000);
             this.Hide();
-            Login frm = new Login();
+            LoginwithEmpid frm = new LoginwithEmpid();
             frm.Show();
             waitform.Close();
         }
-        
+
+        private void lbllogout_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to close this application?", "Exit", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                waitform.Show(this);
+                Thread.Sleep(2000);
+                this.Hide();
+                LoginwithEmpid frm = new LoginwithEmpid();
+                frm.Show();
+                waitform.Close();
+            }
+           
+        }
+
+        private void lbllogout_MouseEnter(object sender, EventArgs e)
+        {
+            lbllogout.Font = new Font(lbllogout.Font.Name, lbllogout.Font.SizeInPoints, FontStyle.Bold);
+            lbllogout.ForeColor = Color.Yellow;
+           
+        }
+
+        private void lbllogout_MouseLeave(object sender, EventArgs e)
+        {
+            lbllogout.Font = new Font(lbllogout.Font.Name, lbllogout.Font.SizeInPoints, FontStyle.Regular);
+            lbllogout.ForeColor = Color.White;
+        }
+
+        private void lblwelcome_MouseEnter(object sender, EventArgs e)
+        {
+            lblwelcome.Font = new Font(lblwelcome.Font.Name, lblwelcome.Font.SizeInPoints, FontStyle.Bold);
+            lblwelcome.ForeColor = Color.Yellow;
+        }
+
+        private void lblwelcome_MouseLeave(object sender, EventArgs e)
+        {
+            lblwelcome.Font = new Font(lblwelcome.Font.Name, lblwelcome.Font.SizeInPoints, FontStyle.Regular);
+            lblwelcome.ForeColor = Color.White;
+        }
+
+        private void labelmenu_MouseEnter(object sender, EventArgs e)
+        {
+            lblmenu.Font = new Font(lblmenu.Font.Name, lblmenu.Font.SizeInPoints, FontStyle.Bold);
+            lblmenu.ForeColor = Color.Yellow;
+        }
+
+        private void labelmenu_MouseLeave(object sender, EventArgs e)
+        {
+            lblmenu.Font = new Font(lblmenu.Font.Name, lblmenu.Font.SizeInPoints, FontStyle.Regular);
+            lblmenu.ForeColor = Color.White;
+        }
+
+      
     }
 }

@@ -32,9 +32,9 @@ C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.TeamRegister.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.frmteamregister.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.frmTaskSheet.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.wait.waitfrm.resources
-C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Login.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.MDI.FormMainMenu.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Properties.Resources.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.csproj.GenerateResource.Cache
 C:\GitTMS\TaskManagementSystem\TMS\TMS\TMS.exe
 C:\GitTMS\TaskManagementSystem\TMS\TMS\TMS.pdb
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.LoginwithEmpid.resources
