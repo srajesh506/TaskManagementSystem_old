@@ -72,17 +72,17 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1084, 613);
+            this.panelMain.Size = new System.Drawing.Size(1084, 645);
             this.panelMain.TabIndex = 0;
             // 
             // groupBoxforexistingemployee
             // 
             this.groupBoxforexistingemployee.BackColor = System.Drawing.Color.White;
             this.groupBoxforexistingemployee.Controls.Add(this.dview);
-            this.groupBoxforexistingemployee.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxforexistingemployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxforexistingemployee.Location = new System.Drawing.Point(6, 358);
             this.groupBoxforexistingemployee.Name = "groupBoxforexistingemployee";
-            this.groupBoxforexistingemployee.Size = new System.Drawing.Size(1066, 243);
+            this.groupBoxforexistingemployee.Size = new System.Drawing.Size(1066, 279);
             this.groupBoxforexistingemployee.TabIndex = 14;
             this.groupBoxforexistingemployee.TabStop = false;
             this.groupBoxforexistingemployee.Text = "Existing Employee";
@@ -90,9 +90,9 @@
             // dview
             // 
             this.dview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dview.Location = new System.Drawing.Point(6, 26);
+            this.dview.Location = new System.Drawing.Point(6, 30);
             this.dview.Name = "dview";
-            this.dview.Size = new System.Drawing.Size(1054, 211);
+            this.dview.Size = new System.Drawing.Size(1054, 243);
             this.dview.TabIndex = 0;
             this.dview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dview_CellClick);
             // 
@@ -103,7 +103,7 @@
             this.groupBoxforbutton.Controls.Add(this.btncancel);
             this.groupBoxforbutton.Controls.Add(this.btnadd);
             this.groupBoxforbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxforbutton.Location = new System.Drawing.Point(366, 301);
+            this.groupBoxforbutton.Location = new System.Drawing.Point(366, 311);
             this.groupBoxforbutton.Name = "groupBoxforbutton";
             this.groupBoxforbutton.Size = new System.Drawing.Size(316, 48);
             this.groupBoxforbutton.TabIndex = 13;
@@ -167,10 +167,10 @@
             this.groupBoxforregistration.Controls.Add(this.txtname);
             this.groupBoxforregistration.Controls.Add(this.lblremark);
             this.groupBoxforregistration.Controls.Add(this.txtempid);
-            this.groupBoxforregistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxforregistration.Location = new System.Drawing.Point(6, 27);
+            this.groupBoxforregistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.groupBoxforregistration.Location = new System.Drawing.Point(6, 26);
             this.groupBoxforregistration.Name = "groupBoxforregistration";
-            this.groupBoxforregistration.Size = new System.Drawing.Size(1066, 268);
+            this.groupBoxforregistration.Size = new System.Drawing.Size(1066, 283);
             this.groupBoxforregistration.TabIndex = 11;
             this.groupBoxforregistration.TabStop = false;
             this.groupBoxforregistration.Text = "Employee Registeration Form";
@@ -333,7 +333,7 @@
             // 
             // lblreg
             // 
-            this.lblreg.BackColor = System.Drawing.Color.White;
+            this.lblreg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.lblreg.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblreg.ForeColor = System.Drawing.Color.White;
             this.lblreg.Location = new System.Drawing.Point(1, 4);
@@ -345,7 +345,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 613);
+            this.ClientSize = new System.Drawing.Size(1084, 645);
             this.Controls.Add(this.panelMain);
             this.Name = "frmteamregister";
             this.Text = "Team Management";

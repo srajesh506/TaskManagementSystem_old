@@ -39,6 +39,13 @@ namespace TMS.App_Code
             return temp;
              
         }
+        private static string _globalVarEMPID = "";
+
+        public static string GlobalVar
+        {
+            get { return _globalVarEMPID; }
+            set { _globalVarEMPID = value; }
+        }
 
     }
 }

@@ -44,21 +44,21 @@
             this.btnteamregister = new System.Windows.Forms.Button();
             this.HomeChildContainer = new System.Windows.Forms.Panel();
             this.btnmasterdata = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnassigntask = new System.Windows.Forms.Button();
             this.panelTS1 = new System.Windows.Forms.Panel();
             this.btntasksheet = new System.Windows.Forms.Button();
             this.panelTC1 = new System.Windows.Forms.Panel();
             this.btntaskcalender = new System.Windows.Forms.Button();
             this.panelReportAnalysis = new System.Windows.Forms.Panel();
-            this.panelTG = new System.Windows.Forms.Panel();
             this.btnTG = new System.Windows.Forms.Button();
-            this.panelteam = new System.Windows.Forms.Panel();
             this.btnteam = new System.Windows.Forms.Button();
-            this.panelTGvsT = new System.Windows.Forms.Panel();
             this.btnTGVT = new System.Windows.Forms.Button();
-            this.panelTvsTG = new System.Windows.Forms.Panel();
             this.btnTVTG = new System.Windows.Forms.Button();
-            this.panelRanalysis = new System.Windows.Forms.Panel();
             this.btnreportanalysis = new System.Windows.Forms.Button();
+            this.pnlmainsettings = new System.Windows.Forms.Panel();
+            this.btnupdatepwd = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.Sidebartimer = new System.Windows.Forms.Timer(this.components);
             this.paneltitlebar = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
@@ -70,6 +70,7 @@
             this.picboxMDIImage = new System.Windows.Forms.PictureBox();
             this.HomeTimer = new System.Windows.Forms.Timer(this.components);
             this.ReportTimer = new System.Windows.Forms.Timer(this.components);
+            this.SettingTimer = new System.Windows.Forms.Timer(this.components);
             this.Sidebar.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picemp)).BeginInit();
@@ -78,14 +79,11 @@
             this.panelTC.SuspendLayout();
             this.panelTS.SuspendLayout();
             this.HomeChildContainer.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panelTS1.SuspendLayout();
             this.panelTC1.SuspendLayout();
             this.panelReportAnalysis.SuspendLayout();
-            this.panelTG.SuspendLayout();
-            this.panelteam.SuspendLayout();
-            this.panelTGvsT.SuspendLayout();
-            this.panelTvsTG.SuspendLayout();
-            this.panelRanalysis.SuspendLayout();
+            this.pnlmainsettings.SuspendLayout();
             this.paneltitlebar.SuspendLayout();
             this.panelDesktopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxMDIImage)).BeginInit();
@@ -96,9 +94,11 @@
             this.Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.Sidebar.Controls.Add(this.panelLogo);
             this.Sidebar.Controls.Add(this.HomeContainer);
+            this.Sidebar.Controls.Add(this.panel1);
             this.Sidebar.Controls.Add(this.panelTS1);
             this.Sidebar.Controls.Add(this.panelTC1);
             this.Sidebar.Controls.Add(this.panelReportAnalysis);
+            this.Sidebar.Controls.Add(this.pnlmainsettings);
             this.Sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.Sidebar.Location = new System.Drawing.Point(0, 0);
             this.Sidebar.MaximumSize = new System.Drawing.Size(245, 678);
@@ -117,7 +117,7 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelLogo.Location = new System.Drawing.Point(3, 3);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(240, 120);
+            this.panelLogo.Size = new System.Drawing.Size(240, 140);
             this.panelLogo.TabIndex = 1;
             // 
             // lbllogout
@@ -163,7 +163,7 @@
             this.lblmenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblmenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmenu.ForeColor = System.Drawing.Color.White;
-            this.lblmenu.Location = new System.Drawing.Point(68, 88);
+            this.lblmenu.Location = new System.Drawing.Point(68, 104);
             this.lblmenu.Name = "lblmenu";
             this.lblmenu.Size = new System.Drawing.Size(50, 21);
             this.lblmenu.TabIndex = 2;
@@ -174,9 +174,10 @@
             // Menubutton
             // 
             this.Menubutton.Image = ((System.Drawing.Image)(resources.GetObject("Menubutton.Image")));
-            this.Menubutton.Location = new System.Drawing.Point(4, 82);
+            this.Menubutton.Location = new System.Drawing.Point(4, 99);
             this.Menubutton.Name = "Menubutton";
             this.Menubutton.Size = new System.Drawing.Size(48, 30);
+            this.Menubutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Menubutton.TabIndex = 1;
             this.Menubutton.TabStop = false;
             this.Menubutton.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -187,7 +188,7 @@
             this.HomeContainer.Controls.Add(this.panelTC);
             this.HomeContainer.Controls.Add(this.panelTS);
             this.HomeContainer.Controls.Add(this.HomeChildContainer);
-            this.HomeContainer.Location = new System.Drawing.Point(3, 129);
+            this.HomeContainer.Location = new System.Drawing.Point(3, 149);
             this.HomeContainer.MaximumSize = new System.Drawing.Size(241, 143);
             this.HomeContainer.MinimumSize = new System.Drawing.Size(241, 56);
             this.HomeContainer.Name = "HomeContainer";
@@ -274,17 +275,42 @@
             this.btnmasterdata.Location = new System.Drawing.Point(-1, -1);
             this.btnmasterdata.Name = "btnmasterdata";
             this.btnmasterdata.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnmasterdata.Size = new System.Drawing.Size(245, 52);
+            this.btnmasterdata.Size = new System.Drawing.Size(243, 58);
             this.btnmasterdata.TabIndex = 2;
             this.btnmasterdata.Text = "             Master Data";
             this.btnmasterdata.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnmasterdata.UseVisualStyleBackColor = false;
             this.btnmasterdata.Click += new System.EventHandler(this.btnmasterdata_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnassigntask);
+            this.panel1.Location = new System.Drawing.Point(3, 211);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(242, 37);
+            this.panel1.TabIndex = 8;
+            // 
+            // btnassigntask
+            // 
+            this.btnassigntask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnassigntask.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnassigntask.ForeColor = System.Drawing.Color.White;
+            this.btnassigntask.Image = ((System.Drawing.Image)(resources.GetObject("btnassigntask.Image")));
+            this.btnassigntask.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnassigntask.Location = new System.Drawing.Point(-1, -8);
+            this.btnassigntask.Name = "btnassigntask";
+            this.btnassigntask.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnassigntask.Size = new System.Drawing.Size(243, 58);
+            this.btnassigntask.TabIndex = 2;
+            this.btnassigntask.Text = "             Assign Task";
+            this.btnassigntask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnassigntask.UseVisualStyleBackColor = true;
+            this.btnassigntask.Click += new System.EventHandler(this.btnassigntask_Click);
+            // 
             // panelTS1
             // 
             this.panelTS1.Controls.Add(this.btntasksheet);
-            this.panelTS1.Location = new System.Drawing.Point(3, 191);
+            this.panelTS1.Location = new System.Drawing.Point(3, 254);
             this.panelTS1.Name = "panelTS1";
             this.panelTS1.Size = new System.Drawing.Size(242, 37);
             this.panelTS1.TabIndex = 4;
@@ -299,7 +325,7 @@
             this.btntasksheet.Location = new System.Drawing.Point(-1, -8);
             this.btntasksheet.Name = "btntasksheet";
             this.btntasksheet.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btntasksheet.Size = new System.Drawing.Size(245, 52);
+            this.btntasksheet.Size = new System.Drawing.Size(243, 58);
             this.btntasksheet.TabIndex = 2;
             this.btntasksheet.Text = "             Task Sheet";
             this.btntasksheet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -309,7 +335,7 @@
             // panelTC1
             // 
             this.panelTC1.Controls.Add(this.btntaskcalender);
-            this.panelTC1.Location = new System.Drawing.Point(3, 234);
+            this.panelTC1.Location = new System.Drawing.Point(3, 297);
             this.panelTC1.Name = "panelTC1";
             this.panelTC1.Size = new System.Drawing.Size(242, 37);
             this.panelTC1.TabIndex = 2;
@@ -324,7 +350,7 @@
             this.btntaskcalender.Location = new System.Drawing.Point(-1, -8);
             this.btntaskcalender.Name = "btntaskcalender";
             this.btntaskcalender.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btntaskcalender.Size = new System.Drawing.Size(245, 52);
+            this.btntaskcalender.Size = new System.Drawing.Size(243, 58);
             this.btntaskcalender.TabIndex = 2;
             this.btntaskcalender.Text = "             Task Calender";
             this.btntaskcalender.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -334,29 +360,19 @@
             // panelReportAnalysis
             // 
             this.panelReportAnalysis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(60)))));
-            this.panelReportAnalysis.Controls.Add(this.panelTG);
-            this.panelReportAnalysis.Controls.Add(this.panelteam);
-            this.panelReportAnalysis.Controls.Add(this.panelTGvsT);
-            this.panelReportAnalysis.Controls.Add(this.panelTvsTG);
-            this.panelReportAnalysis.Controls.Add(this.panelRanalysis);
-            this.panelReportAnalysis.Location = new System.Drawing.Point(3, 277);
-            this.panelReportAnalysis.MaximumSize = new System.Drawing.Size(241, 226);
-            this.panelReportAnalysis.MinimumSize = new System.Drawing.Size(241, 54);
+            this.panelReportAnalysis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelReportAnalysis.Controls.Add(this.btnTG);
+            this.panelReportAnalysis.Controls.Add(this.btnteam);
+            this.panelReportAnalysis.Controls.Add(this.btnTGVT);
+            this.panelReportAnalysis.Controls.Add(this.btnTVTG);
+            this.panelReportAnalysis.Controls.Add(this.btnreportanalysis);
+            this.panelReportAnalysis.Location = new System.Drawing.Point(3, 340);
+            this.panelReportAnalysis.MaximumSize = new System.Drawing.Size(241, 276);
+            this.panelReportAnalysis.MinimumSize = new System.Drawing.Size(241, 50);
             this.panelReportAnalysis.Name = "panelReportAnalysis";
-            this.panelReportAnalysis.Size = new System.Drawing.Size(241, 54);
+            this.panelReportAnalysis.Size = new System.Drawing.Size(241, 50);
             this.panelReportAnalysis.TabIndex = 7;
             this.panelReportAnalysis.Paint += new System.Windows.Forms.PaintEventHandler(this.panelReportAnalysis_Paint);
-            // 
-            // panelTG
-            // 
-            this.panelTG.BackColor = System.Drawing.Color.White;
-            this.panelTG.Controls.Add(this.btnTG);
-            this.panelTG.Location = new System.Drawing.Point(0, 175);
-            this.panelTG.MaximumSize = new System.Drawing.Size(241, 92);
-            this.panelTG.MinimumSize = new System.Drawing.Size(241, 50);
-            this.panelTG.Name = "panelTG";
-            this.panelTG.Size = new System.Drawing.Size(241, 50);
-            this.panelTG.TabIndex = 10;
             // 
             // btnTG
             // 
@@ -366,7 +382,7 @@
             this.btnTG.ForeColor = System.Drawing.Color.White;
             this.btnTG.Image = ((System.Drawing.Image)(resources.GetObject("btnTG.Image")));
             this.btnTG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTG.Location = new System.Drawing.Point(-1, -1);
+            this.btnTG.Location = new System.Drawing.Point(-1, 217);
             this.btnTG.Name = "btnTG";
             this.btnTG.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnTG.Size = new System.Drawing.Size(245, 57);
@@ -376,17 +392,6 @@
             this.btnTG.UseVisualStyleBackColor = false;
             this.btnTG.Click += new System.EventHandler(this.btnTG_Click);
             // 
-            // panelteam
-            // 
-            this.panelteam.BackColor = System.Drawing.Color.White;
-            this.panelteam.Controls.Add(this.btnteam);
-            this.panelteam.Location = new System.Drawing.Point(0, 134);
-            this.panelteam.MaximumSize = new System.Drawing.Size(241, 92);
-            this.panelteam.MinimumSize = new System.Drawing.Size(241, 50);
-            this.panelteam.Name = "panelteam";
-            this.panelteam.Size = new System.Drawing.Size(241, 50);
-            this.panelteam.TabIndex = 9;
-            // 
             // btnteam
             // 
             this.btnteam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(60)))));
@@ -395,7 +400,7 @@
             this.btnteam.ForeColor = System.Drawing.Color.White;
             this.btnteam.Image = ((System.Drawing.Image)(resources.GetObject("btnteam.Image")));
             this.btnteam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnteam.Location = new System.Drawing.Point(-1, -1);
+            this.btnteam.Location = new System.Drawing.Point(-1, 161);
             this.btnteam.Name = "btnteam";
             this.btnteam.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnteam.Size = new System.Drawing.Size(245, 57);
@@ -405,17 +410,6 @@
             this.btnteam.UseVisualStyleBackColor = false;
             this.btnteam.Click += new System.EventHandler(this.btnteam_Click);
             // 
-            // panelTGvsT
-            // 
-            this.panelTGvsT.BackColor = System.Drawing.Color.White;
-            this.panelTGvsT.Controls.Add(this.btnTGVT);
-            this.panelTGvsT.Location = new System.Drawing.Point(1, 93);
-            this.panelTGvsT.MaximumSize = new System.Drawing.Size(241, 92);
-            this.panelTGvsT.MinimumSize = new System.Drawing.Size(241, 50);
-            this.panelTGvsT.Name = "panelTGvsT";
-            this.panelTGvsT.Size = new System.Drawing.Size(241, 50);
-            this.panelTGvsT.TabIndex = 8;
-            // 
             // btnTGVT
             // 
             this.btnTGVT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(60)))));
@@ -424,7 +418,7 @@
             this.btnTGVT.ForeColor = System.Drawing.Color.White;
             this.btnTGVT.Image = ((System.Drawing.Image)(resources.GetObject("btnTGVT.Image")));
             this.btnTGVT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTGVT.Location = new System.Drawing.Point(-1, -1);
+            this.btnTGVT.Location = new System.Drawing.Point(-1, 105);
             this.btnTGVT.Name = "btnTGVT";
             this.btnTGVT.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnTGVT.Size = new System.Drawing.Size(245, 57);
@@ -434,17 +428,6 @@
             this.btnTGVT.UseVisualStyleBackColor = false;
             this.btnTGVT.Click += new System.EventHandler(this.btnTGVT_Click);
             // 
-            // panelTvsTG
-            // 
-            this.panelTvsTG.BackColor = System.Drawing.Color.White;
-            this.panelTvsTG.Controls.Add(this.btnTVTG);
-            this.panelTvsTG.Location = new System.Drawing.Point(1, 55);
-            this.panelTvsTG.MaximumSize = new System.Drawing.Size(241, 92);
-            this.panelTvsTG.MinimumSize = new System.Drawing.Size(241, 50);
-            this.panelTvsTG.Name = "panelTvsTG";
-            this.panelTvsTG.Size = new System.Drawing.Size(241, 50);
-            this.panelTvsTG.TabIndex = 7;
-            // 
             // btnTVTG
             // 
             this.btnTVTG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(60)))));
@@ -453,7 +436,7 @@
             this.btnTVTG.ForeColor = System.Drawing.Color.White;
             this.btnTVTG.Image = ((System.Drawing.Image)(resources.GetObject("btnTVTG.Image")));
             this.btnTVTG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTVTG.Location = new System.Drawing.Point(-1, -4);
+            this.btnTVTG.Location = new System.Drawing.Point(-1, 50);
             this.btnTVTG.Name = "btnTVTG";
             this.btnTVTG.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnTVTG.Size = new System.Drawing.Size(245, 57);
@@ -462,17 +445,6 @@
             this.btnTVTG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTVTG.UseVisualStyleBackColor = false;
             this.btnTVTG.Click += new System.EventHandler(this.btnTVTG_Click);
-            // 
-            // panelRanalysis
-            // 
-            this.panelRanalysis.BackColor = System.Drawing.Color.White;
-            this.panelRanalysis.Controls.Add(this.btnreportanalysis);
-            this.panelRanalysis.Location = new System.Drawing.Point(1, 3);
-            this.panelRanalysis.MaximumSize = new System.Drawing.Size(241, 92);
-            this.panelRanalysis.MinimumSize = new System.Drawing.Size(241, 50);
-            this.panelRanalysis.Name = "panelRanalysis";
-            this.panelRanalysis.Size = new System.Drawing.Size(241, 50);
-            this.panelRanalysis.TabIndex = 5;
             // 
             // btnreportanalysis
             // 
@@ -485,12 +457,61 @@
             this.btnreportanalysis.Location = new System.Drawing.Point(-1, -1);
             this.btnreportanalysis.Name = "btnreportanalysis";
             this.btnreportanalysis.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnreportanalysis.Size = new System.Drawing.Size(245, 52);
+            this.btnreportanalysis.Size = new System.Drawing.Size(243, 58);
             this.btnreportanalysis.TabIndex = 2;
             this.btnreportanalysis.Text = "             Report Analysis";
             this.btnreportanalysis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnreportanalysis.UseVisualStyleBackColor = false;
             this.btnreportanalysis.Click += new System.EventHandler(this.btnreportanalysis_Click);
+            // 
+            // pnlmainsettings
+            // 
+            this.pnlmainsettings.BackColor = System.Drawing.Color.White;
+            this.pnlmainsettings.Controls.Add(this.btnupdatepwd);
+            this.pnlmainsettings.Controls.Add(this.btnSettings);
+            this.pnlmainsettings.ForeColor = System.Drawing.Color.White;
+            this.pnlmainsettings.Location = new System.Drawing.Point(3, 396);
+            this.pnlmainsettings.MaximumSize = new System.Drawing.Size(241, 106);
+            this.pnlmainsettings.MinimumSize = new System.Drawing.Size(241, 50);
+            this.pnlmainsettings.Name = "pnlmainsettings";
+            this.pnlmainsettings.Size = new System.Drawing.Size(241, 50);
+            this.pnlmainsettings.TabIndex = 7;
+            // 
+            // btnupdatepwd
+            // 
+            this.btnupdatepwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnupdatepwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnupdatepwd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnupdatepwd.ForeColor = System.Drawing.Color.White;
+            this.btnupdatepwd.Image = ((System.Drawing.Image)(resources.GetObject("btnupdatepwd.Image")));
+            this.btnupdatepwd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnupdatepwd.Location = new System.Drawing.Point(0, 56);
+            this.btnupdatepwd.Name = "btnupdatepwd";
+            this.btnupdatepwd.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnupdatepwd.Size = new System.Drawing.Size(245, 52);
+            this.btnupdatepwd.TabIndex = 2;
+            this.btnupdatepwd.Text = "             Update Password";
+            this.btnupdatepwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnupdatepwd.UseVisualStyleBackColor = false;
+            this.btnupdatepwd.Click += new System.EventHandler(this.btnupdatepwd_Click);
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(-1, -1);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnSettings.Size = new System.Drawing.Size(243, 58);
+            this.btnSettings.TabIndex = 2;
+            this.btnSettings.Text = "             Settings";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // Sidebartimer
             // 
@@ -519,11 +540,11 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Location = new System.Drawing.Point(822, 0);
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
+            this.btnMinimize.Location = new System.Drawing.Point(811, 2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(30, 30);
             this.btnMinimize.TabIndex = 4;
-            this.btnMinimize.Text = "O";
             this.btnMinimize.UseVisualStyleBackColor = true;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
@@ -534,11 +555,11 @@
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximize.ForeColor = System.Drawing.Color.White;
-            this.btnMaximize.Location = new System.Drawing.Point(845, 0);
+            this.btnMaximize.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximize.Image")));
+            this.btnMaximize.Location = new System.Drawing.Point(844, 10);
             this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(30, 30);
+            this.btnMaximize.Size = new System.Drawing.Size(18, 15);
             this.btnMaximize.TabIndex = 3;
-            this.btnMaximize.Text = "O";
             this.btnMaximize.UseVisualStyleBackColor = true;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
             // 
@@ -549,11 +570,11 @@
             this.btnclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnclose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnclose.ForeColor = System.Drawing.Color.White;
-            this.btnclose.Location = new System.Drawing.Point(869, 0);
+            this.btnclose.Location = new System.Drawing.Point(866, 1);
             this.btnclose.Name = "btnclose";
-            this.btnclose.Size = new System.Drawing.Size(30, 30);
+            this.btnclose.Size = new System.Drawing.Size(30, 29);
             this.btnclose.TabIndex = 2;
-            this.btnclose.Text = "O";
+            this.btnclose.Text = "x";
             this.btnclose.UseVisualStyleBackColor = true;
             this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
             // 
@@ -615,6 +636,11 @@
             this.ReportTimer.Interval = 10;
             this.ReportTimer.Tick += new System.EventHandler(this.ReportTimer_Tick);
             // 
+            // SettingTimer
+            // 
+            this.SettingTimer.Interval = 10;
+            this.SettingTimer.Tick += new System.EventHandler(this.SettingTimer_Tick);
+            // 
             // FormMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -637,14 +663,11 @@
             this.panelTC.ResumeLayout(false);
             this.panelTS.ResumeLayout(false);
             this.HomeChildContainer.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.panelTS1.ResumeLayout(false);
             this.panelTC1.ResumeLayout(false);
             this.panelReportAnalysis.ResumeLayout(false);
-            this.panelTG.ResumeLayout(false);
-            this.panelteam.ResumeLayout(false);
-            this.panelTGvsT.ResumeLayout(false);
-            this.panelTvsTG.ResumeLayout(false);
-            this.panelRanalysis.ResumeLayout(false);
+            this.pnlmainsettings.ResumeLayout(false);
             this.paneltitlebar.ResumeLayout(false);
             this.paneltitlebar.PerformLayout();
             this.panelDesktopPanel.ResumeLayout(false);
@@ -680,20 +703,21 @@
         private System.Windows.Forms.Panel panelTC;
         private System.Windows.Forms.Button btngrouptask;
         private System.Windows.Forms.Panel panelReportAnalysis;
-        private System.Windows.Forms.Panel panelteam;
         private System.Windows.Forms.Button btnteam;
-        private System.Windows.Forms.Panel panelTGvsT;
         private System.Windows.Forms.Button btnTGVT;
-        private System.Windows.Forms.Panel panelTvsTG;
         private System.Windows.Forms.Button btnTVTG;
-        private System.Windows.Forms.Panel panelRanalysis;
         private System.Windows.Forms.Button btnreportanalysis;
-        private System.Windows.Forms.Panel panelTG;
         private System.Windows.Forms.Button btnTG;
         private System.Windows.Forms.Timer ReportTimer;
         private System.Windows.Forms.PictureBox picboxMDIImage;
         private System.Windows.Forms.Label lblwelcome;
         private System.Windows.Forms.PictureBox picemp;
         private System.Windows.Forms.Label lbllogout;
+        private System.Windows.Forms.Panel pnlmainsettings;
+        private System.Windows.Forms.Timer SettingTimer;
+        private System.Windows.Forms.Button btnupdatepwd;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnassigntask;
     }
 }

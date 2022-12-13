@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using TMS.Home.wait;
 using System.Threading;
 using System.IO;
+using TMS.Controls.TeamRegisterandManage;
+using TMS.App_Code;
 
 namespace TMS.MDI
 {
@@ -16,13 +18,16 @@ namespace TMS.MDI
         bool sidebarexpand=true;
         bool homecollaps= true;
         bool Reportcollaps = true;
+        bool Settingscollaps = true;
         private Form activeForm;
         waitformfunc waitform = new waitformfunc();
         App_Code.CodeTMS obj = new App_Code.CodeTMS();
+       
         public FormMainMenu(string  empid)
         {
             InitializeComponent();
             random = new Random();
+            Global.GlobalVar = empid;
             btnclosechildform.Visible = false;
             this.Text = string.Empty;
             this.ControlBox = false;
@@ -273,13 +278,11 @@ namespace TMS.MDI
                 }
             }
         }
-
         private void btnreportanalysis_Click(object sender, EventArgs e)
         {
             //ActiveButton(sender);
             ReportTimer.Start();
         }
-
         private void btnteamregister_Click(object sender, EventArgs e)
         {
             //this.btnteamregister.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnteamregister_Click);
@@ -290,16 +293,14 @@ namespace TMS.MDI
             waitform.Close();
 
         }
-
         private void btngrouptask_Click(object sender, EventArgs e)
         {
             waitform.Show(this);
             Thread.Sleep(2000);
-            OpenChildForm(new Home.GroupTask(), sender);
+            OpenChildForm(new Home.TaskManagement(), sender);
             ActiveButton(sender);
             waitform.Close();
         }
-
         private void btnTVTG_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Home.GroupTask(), sender);
@@ -308,7 +309,6 @@ namespace TMS.MDI
             ActiveButton(sender);
             waitform.Close();
         }
-
         private void btnTGVT_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Home.GroupTask(), sender);
@@ -317,7 +317,6 @@ namespace TMS.MDI
             ActiveButton(sender);
             waitform.Close();
         }
-
         private void btnteam_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Home.GroupTask(), sender);
@@ -326,7 +325,6 @@ namespace TMS.MDI
             ActiveButton(sender);
             waitform.Close();
         }
-
         private void btnTG_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Home.GroupTask(), sender);
@@ -335,7 +333,6 @@ namespace TMS.MDI
             ActiveButton(sender);
             waitform.Close();
         }
-
         private void Logout_Click_1(object sender, EventArgs e)
         {
             waitform.Show(this);
@@ -345,7 +342,6 @@ namespace TMS.MDI
             frm.Show();
             waitform.Close();
         }
-
         private void lbllogout_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want to close this application?", "Exit", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
@@ -357,34 +353,27 @@ namespace TMS.MDI
                 frm.Show();
                 waitform.Close();
             }
-           
         }
-
         private void lbllogout_MouseEnter(object sender, EventArgs e)
         {
             lbllogout.Font = new Font(lbllogout.Font.Name, lbllogout.Font.SizeInPoints, FontStyle.Bold);
             lbllogout.ForeColor = Color.Yellow;
-           
         }
-
         private void lbllogout_MouseLeave(object sender, EventArgs e)
         {
             lbllogout.Font = new Font(lbllogout.Font.Name, lbllogout.Font.SizeInPoints, FontStyle.Regular);
             lbllogout.ForeColor = Color.White;
         }
-
         private void lblwelcome_MouseEnter(object sender, EventArgs e)
         {
             lblwelcome.Font = new Font(lblwelcome.Font.Name, lblwelcome.Font.SizeInPoints, FontStyle.Bold);
             lblwelcome.ForeColor = Color.Yellow;
         }
-
         private void lblwelcome_MouseLeave(object sender, EventArgs e)
         {
             lblwelcome.Font = new Font(lblwelcome.Font.Name, lblwelcome.Font.SizeInPoints, FontStyle.Regular);
             lblwelcome.ForeColor = Color.White;
         }
-
         private void labelmenu_MouseEnter(object sender, EventArgs e)
         {
             lblmenu.Font = new Font(lblmenu.Font.Name, lblmenu.Font.SizeInPoints, FontStyle.Bold);
@@ -397,6 +386,49 @@ namespace TMS.MDI
             lblmenu.ForeColor = Color.White;
         }
 
-      
+       
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            SettingTimer.Start();
+        }
+        private void SettingTimer_Tick(object sender, EventArgs e)
+        {
+            if (Settingscollaps)
+            {
+                pnlmainsettings.Height = pnlmainsettings.Height + 10;
+                if (pnlmainsettings.Height == pnlmainsettings.MaximumSize.Height)
+                {
+                    Settingscollaps = false;
+                    SettingTimer.Stop();
+                }
+            }
+            else
+            {
+                pnlmainsettings.Height = pnlmainsettings.Height - 10;
+                if (pnlmainsettings.Height == pnlmainsettings.MinimumSize.Height)
+                {
+                    Settingscollaps = true;
+                    SettingTimer.Stop();
+                }
+            }
+        }
+        private void btnupdatepwd_Click(object sender, EventArgs e)
+        {
+            waitform.Show(this);
+            Thread.Sleep(2000);
+            OpenChildForm(new updatepassword(), sender);
+            ActiveButton(sender);
+            waitform.Close();
+        }
+
+        private void btnassigntask_Click(object sender, EventArgs e)
+        {
+          
+            waitform.Show(this);
+            Thread.Sleep(2000);
+            OpenChildForm(new Home.AssignTask(), sender);
+            ActiveButton(sender);
+            waitform.Close();
+        }
     }
 }

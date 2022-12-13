@@ -23,12 +23,9 @@ C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.exe
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.pdb
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.csprojResolveAssemblyReference.cache
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.addrole.resources
-C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.Manage.resources
-C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.TeamRegisterView.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.FormAbout.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.GroupTask.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.frmtaskCalender.resources
-C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.TeamRegister.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.frmteamregister.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.frmTaskSheet.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.wait.waitfrm.resources
@@ -38,3 +35,9 @@ C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.csproj.GenerateResource.Cac
 C:\GitTMS\TaskManagementSystem\TMS\TMS\TMS.exe
 C:\GitTMS\TaskManagementSystem\TMS\TMS\TMS.pdb
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.LoginwithEmpid.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.TaskManagement.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.DefineActivity.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.DefineSubTask.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.DefineTask.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.updatepassword.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.AssignTask.resources

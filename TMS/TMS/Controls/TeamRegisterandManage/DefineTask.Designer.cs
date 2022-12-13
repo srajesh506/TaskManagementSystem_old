@@ -1,13 +1,13 @@
-﻿namespace TMS.Home
+﻿namespace TMS.Controls.TeamRegisterandManage
 {
-    partial class GroupTask
+    partial class DefineTask
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,10 +20,10 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -37,11 +37,13 @@
             this.btncancel = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
             this.gbxtaskmanagement = new System.Windows.Forms.GroupBox();
+            this.cmbactivity = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chkactive = new System.Windows.Forms.CheckBox();
             this.rtxtremark = new System.Windows.Forms.RichTextBox();
             this.lbltaskname = new System.Windows.Forms.Label();
             this.lblremark = new System.Windows.Forms.Label();
             this.txttaskName = new System.Windows.Forms.TextBox();
-            this.chkactive = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBoxforexistingemployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dview)).BeginInit();
@@ -58,17 +60,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1081, 597);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(1097, 636);
+            this.panel1.TabIndex = 2;
             // 
             // groupBoxforexistingemployee
             // 
             this.groupBoxforexistingemployee.BackColor = System.Drawing.Color.White;
             this.groupBoxforexistingemployee.Controls.Add(this.dview);
             this.groupBoxforexistingemployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxforexistingemployee.Location = new System.Drawing.Point(12, 267);
+            this.groupBoxforexistingemployee.Location = new System.Drawing.Point(12, 290);
             this.groupBoxforexistingemployee.Name = "groupBoxforexistingemployee";
-            this.groupBoxforexistingemployee.Size = new System.Drawing.Size(1057, 323);
+            this.groupBoxforexistingemployee.Size = new System.Drawing.Size(1076, 278);
             this.groupBoxforexistingemployee.TabIndex = 15;
             this.groupBoxforexistingemployee.TabStop = false;
             this.groupBoxforexistingemployee.Text = "Existing Task and Description";
@@ -76,9 +78,10 @@
             // dview
             // 
             this.dview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dview.Location = new System.Drawing.Point(6, 30);
+            this.dview.GridColor = System.Drawing.Color.Gray;
+            this.dview.Location = new System.Drawing.Point(6, 24);
             this.dview.Name = "dview";
-            this.dview.Size = new System.Drawing.Size(1045, 284);
+            this.dview.Size = new System.Drawing.Size(1054, 248);
             this.dview.TabIndex = 0;
             this.dview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dview_CellClick);
             // 
@@ -89,7 +92,7 @@
             this.groupBoxforbutton.Controls.Add(this.btncancel);
             this.groupBoxforbutton.Controls.Add(this.btnadd);
             this.groupBoxforbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxforbutton.Location = new System.Drawing.Point(368, 217);
+            this.groupBoxforbutton.Location = new System.Drawing.Point(403, 197);
             this.groupBoxforbutton.Name = "groupBoxforbutton";
             this.groupBoxforbutton.Size = new System.Drawing.Size(316, 48);
             this.groupBoxforbutton.TabIndex = 14;
@@ -137,25 +140,60 @@
             // 
             // gbxtaskmanagement
             // 
+            this.gbxtaskmanagement.Controls.Add(this.cmbactivity);
+            this.gbxtaskmanagement.Controls.Add(this.label1);
             this.gbxtaskmanagement.Controls.Add(this.chkactive);
             this.gbxtaskmanagement.Controls.Add(this.rtxtremark);
             this.gbxtaskmanagement.Controls.Add(this.lbltaskname);
             this.gbxtaskmanagement.Controls.Add(this.lblremark);
             this.gbxtaskmanagement.Controls.Add(this.txttaskName);
-            this.gbxtaskmanagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxtaskmanagement.Location = new System.Drawing.Point(12, 31);
+            this.gbxtaskmanagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.gbxtaskmanagement.Location = new System.Drawing.Point(12, 2);
             this.gbxtaskmanagement.Name = "gbxtaskmanagement";
-            this.gbxtaskmanagement.Size = new System.Drawing.Size(1057, 180);
+            this.gbxtaskmanagement.Size = new System.Drawing.Size(1076, 191);
             this.gbxtaskmanagement.TabIndex = 12;
             this.gbxtaskmanagement.TabStop = false;
-            this.gbxtaskmanagement.Text = "Task Management";
+            this.gbxtaskmanagement.Text = "Define Task";
+            // 
+            // cmbactivity
+            // 
+            this.cmbactivity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbactivity.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbactivity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.cmbactivity.FormattingEnabled = true;
+            this.cmbactivity.Location = new System.Drawing.Point(478, 23);
+            this.cmbactivity.Name = "cmbactivity";
+            this.cmbactivity.Size = new System.Drawing.Size(296, 29);
+            this.cmbactivity.TabIndex = 9;
+            this.cmbactivity.SelectedIndexChanged += new System.EventHandler(this.cmbactivity_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(315, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 19);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Select Activity";
+            // 
+            // chkactive
+            // 
+            this.chkactive.AutoSize = true;
+            this.chkactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkactive.Location = new System.Drawing.Point(478, 163);
+            this.chkactive.Name = "chkactive";
+            this.chkactive.Size = new System.Drawing.Size(69, 19);
+            this.chkactive.TabIndex = 7;
+            this.chkactive.Text = "Is Active";
+            this.chkactive.UseVisualStyleBackColor = true;
             // 
             // rtxtremark
             // 
             this.rtxtremark.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.rtxtremark.Location = new System.Drawing.Point(427, 83);
+            this.rtxtremark.Location = new System.Drawing.Point(478, 98);
             this.rtxtremark.Name = "rtxtremark";
-            this.rtxtremark.Size = new System.Drawing.Size(272, 62);
+            this.rtxtremark.Size = new System.Drawing.Size(296, 62);
             this.rtxtremark.TabIndex = 6;
             this.rtxtremark.Text = "";
             // 
@@ -163,7 +201,7 @@
             // 
             this.lbltaskname.AutoSize = true;
             this.lbltaskname.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltaskname.Location = new System.Drawing.Point(315, 30);
+            this.lbltaskname.Location = new System.Drawing.Point(315, 63);
             this.lbltaskname.Name = "lbltaskname";
             this.lbltaskname.Size = new System.Drawing.Size(95, 19);
             this.lbltaskname.TabIndex = 1;
@@ -173,39 +211,29 @@
             // 
             this.lblremark.AutoSize = true;
             this.lblremark.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.lblremark.Location = new System.Drawing.Point(315, 83);
+            this.lblremark.Location = new System.Drawing.Point(315, 98);
             this.lblremark.Name = "lblremark";
-            this.lblremark.Size = new System.Drawing.Size(75, 19);
+            this.lblremark.Size = new System.Drawing.Size(131, 19);
             this.lblremark.TabIndex = 5;
-            this.lblremark.Text = "Remarks";
+            this.lblremark.Text = "Task Description";
             // 
             // txttaskName
             // 
             this.txttaskName.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txttaskName.Location = new System.Drawing.Point(427, 30);
+            this.txttaskName.Location = new System.Drawing.Point(478, 63);
             this.txttaskName.Name = "txttaskName";
-            this.txttaskName.Size = new System.Drawing.Size(272, 27);
+            this.txttaskName.Size = new System.Drawing.Size(296, 27);
             this.txttaskName.TabIndex = 1;
             // 
-            // chkactive
-            // 
-            this.chkactive.AutoSize = true;
-            this.chkactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkactive.Location = new System.Drawing.Point(427, 154);
-            this.chkactive.Name = "chkactive";
-            this.chkactive.Size = new System.Drawing.Size(69, 19);
-            this.chkactive.TabIndex = 7;
-            this.chkactive.Text = "Is Active";
-            this.chkactive.UseVisualStyleBackColor = true;
-            // 
-            // GroupTask
+            // DefineTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1081, 597);
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel1);
-            this.Name = "GroupTask";
-            this.Text = "Task Management";
+            this.Name = "DefineTask";
+            this.Size = new System.Drawing.Size(1097, 636);
+            this.Load += new System.EventHandler(this.DefineTask_Load);
             this.panel1.ResumeLayout(false);
             this.groupBoxforexistingemployee.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dview)).EndInit();
@@ -219,18 +247,20 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox gbxtaskmanagement;
-        private System.Windows.Forms.RichTextBox rtxtremark;
-        private System.Windows.Forms.Label lbltaskname;
-        private System.Windows.Forms.Label lblremark;
-        private System.Windows.Forms.TextBox txttaskName;
+        private System.Windows.Forms.GroupBox groupBoxforexistingemployee;
+        private System.Windows.Forms.DataGridView dview;
         private System.Windows.Forms.GroupBox groupBoxforbutton;
         private System.Windows.Forms.Button btnsave;
         private System.Windows.Forms.Button btnmodify;
         private System.Windows.Forms.Button btncancel;
         private System.Windows.Forms.Button btnadd;
-        private System.Windows.Forms.GroupBox groupBoxforexistingemployee;
-        private System.Windows.Forms.DataGridView dview;
+        private System.Windows.Forms.GroupBox gbxtaskmanagement;
         private System.Windows.Forms.CheckBox chkactive;
+        private System.Windows.Forms.RichTextBox rtxtremark;
+        private System.Windows.Forms.Label lbltaskname;
+        private System.Windows.Forms.Label lblremark;
+        private System.Windows.Forms.TextBox txttaskName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbactivity;
     }
 }

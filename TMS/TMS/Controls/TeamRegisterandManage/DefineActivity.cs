@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TMS.Home
+namespace TMS.Controls.TeamRegisterandManage
 {
-    public partial class GroupTask : Form
+    public partial class DefineActivity : UserControl
     {
         App_Code.CodeTMS obj = new App_Code.CodeTMS();
-        static int taskid;
-        public GroupTask()
+        static int activityid;
+        public DefineActivity()
         {
             InitializeComponent();
             LoadTheme();
@@ -38,7 +38,7 @@ namespace TMS.Home
             btnsave.ForeColor = ThemeColor.PrimaryColor;
             btnmodify.ForeColor = ThemeColor.PrimaryColor;
             btncancel.ForeColor = ThemeColor.PrimaryColor;
-            lblremark.ForeColor = ThemeColor.SecondaryColor;
+            //lblremark.ForeColor = ThemeColor.SecondaryColor;
             gbxtaskmanagement.ForeColor = ThemeColor.PrimaryColor;
             groupBoxforbutton.ForeColor = ThemeColor.PrimaryColor;
             groupBoxforexistingemployee.ForeColor = ThemeColor.PrimaryColor;
@@ -53,7 +53,7 @@ namespace TMS.Home
                 btnsave.Enabled = false;
                 btnmodify.Enabled = false;
                 btncancel.Enabled = false;
-              
+
             }
             if (flag == 1) //Add Data
             {
@@ -82,7 +82,7 @@ namespace TMS.Home
                 btnsave.Enabled = false;
                 btncancel.Enabled = true;
                 btnmodify.Enabled = true;
-                txttaskName.Enabled = false;
+                //txttaskName.Enabled = false;
             }
         }
 
@@ -103,17 +103,17 @@ namespace TMS.Home
             {
                 if (txttaskName.Text == "")
                 {
-                    MessageBox.Show("Please enter Task!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please enter Activity Name!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txttaskName.Select();
                     return;
                 }
                 if (rtxtremark.Text == "")
                 {
-                    MessageBox.Show("Please enter Remark or Task Description!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please enter Activity Description!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     rtxtremark.Select();
                     return;
                 }
-                obj.FireQuery("Update tbl_taskgroup Set task_Name='" + txttaskName.Text + "',task_Des='" + rtxtremark.Text + "',Modifydate='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "',Isactive='" + chkactive.Checked + "' where task_id='" + taskid + "'");
+                obj.FireQuery("Update tbl_activity Set activityname='" + txttaskName.Text + "',activitydescription='" + rtxtremark.Text + "',Modifydate='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "',Isactive='" + chkactive.Checked + "' where activityid='" + activityid + "'");
                 obj.clearControls(gbxtaskmanagement);
                 GetAllData();
                 enabledisablebuttons(2);
@@ -131,24 +131,24 @@ namespace TMS.Home
             {
                 if (txttaskName.Text == "")
                 {
-                    MessageBox.Show("Please enter Task!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please enter Activity Name!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txttaskName.Select();
                     return;
                 }
                 if (rtxtremark.Text == "")
                 {
-                    MessageBox.Show("Please enter Remark! or Task Description", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please enter Activity Description!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     rtxtremark.Select();
                     return;
                 }
                 if (chkactive.Checked == false)
                 {
-                    MessageBox.Show("Please Confirm Active Task!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please Confirm Active Activity!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                 obj.FireQuery("insert into tbl_taskgroup(task_Name,task_Des,isactive,Createddate)Values('" + txttaskName.Text + "','" + rtxtremark.Text + "','" + chkactive.Checked + "','" + DateTime.Now.ToString("yyyy - MM - dd HH: mm:ss") + "')");
-                 GetAllData();
-                 obj.clearControls(gbxtaskmanagement);
+                obj.FireQuery("insert into tbl_activity(activityname,activitydescription,isactive,Createddate)Values('" + txttaskName.Text + "','" + rtxtremark.Text + "','" + chkactive.Checked + "','" + DateTime.Now.ToString("yyyy - MM - dd HH: mm:ss") + "')");
+                GetAllData();
+                obj.clearControls(gbxtaskmanagement);
                 enabledisablebuttons(2);
                 MessageBox.Show("Data Saved Successfully!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -160,7 +160,7 @@ namespace TMS.Home
         public void GetAllData()
         {
             dview.DataSource = null;
-            dview.DataSource = obj.GetDataFromTable("select ROW_NUMBER()OVER (ORDER BY task_id)SLNO,task_Name as Task,task_Des as [Description],task_id as taskid,IsActive from tbl_taskgroup where IsActive=1").Tables[0];
+            dview.DataSource = obj.GetDataFromTable("select ROW_NUMBER()OVER (ORDER BY activityid)SLNO,activityname as ActivityName,activitydescription as [Description],activityid,IsActive from tbl_activity where IsActive=1").Tables[0];
             dview.Columns[0].Width = 150;
             dview.Columns[1].Width = 400;
             dview.Columns[2].Width = 500;
@@ -174,14 +174,14 @@ namespace TMS.Home
         {
             try
             {
-                taskid = 0;
+                activityid = 0;
                 int index = dview.CurrentRow.Index;
                 if (index <= dview.RowCount - 1)
                 {
-                   
+
                     txttaskName.Text = Convert.ToString(dview.Rows[index].Cells[1].Value);
                     rtxtremark.Text = Convert.ToString(dview.Rows[index].Cells[2].Value);
-                    taskid = Convert.ToInt32(dview.Rows[index].Cells[3].Value);
+                    activityid = Convert.ToInt32(dview.Rows[index].Cells[3].Value);
                     chkactive.Checked = Convert.ToBoolean(dview.Rows[index].Cells[4].Value);
                     enabledisablebuttons(3);
                 }

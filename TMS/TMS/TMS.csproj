@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TMS</RootNamespace>
     <AssemblyName>TMS</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,17 +67,35 @@
     <Compile Include="Controls\TeamRegisterandManage\addrole.Designer.cs">
       <DependentUpon>addrole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\Manage.cs">
+    <Compile Include="Controls\TeamRegisterandManage\DefineActivity.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\Manage.Designer.cs">
-      <DependentUpon>Manage.cs</DependentUpon>
+    <Compile Include="Controls\TeamRegisterandManage\DefineActivity.Designer.cs">
+      <DependentUpon>DefineActivity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\TeamRegisterView.cs">
+    <Compile Include="Controls\TeamRegisterandManage\DefineSubTask.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\TeamRegisterView.Designer.cs">
-      <DependentUpon>TeamRegisterView.cs</DependentUpon>
+    <Compile Include="Controls\TeamRegisterandManage\DefineSubTask.Designer.cs">
+      <DependentUpon>DefineSubTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TeamRegisterandManage\DefineTask.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TeamRegisterandManage\DefineTask.Designer.cs">
+      <DependentUpon>DefineTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TeamRegisterandManage\updatepassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\TeamRegisterandManage\updatepassword.Designer.cs">
+      <DependentUpon>updatepassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\AssignTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\AssignTask.Designer.cs">
+      <DependentUpon>AssignTask.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\FormAbout.cs">
       <SubType>Form</SubType>
@@ -96,11 +115,11 @@
     <Compile Include="Home\TaskCalender.Designer.cs">
       <DependentUpon>TaskCalender.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\TeamManagement.cs">
+    <Compile Include="Home\TaskManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\TeamManagement.Designer.cs">
-      <DependentUpon>TeamManagement.cs</DependentUpon>
+    <Compile Include="Home\TaskManagement.Designer.cs">
+      <DependentUpon>TaskManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\TeamRegister.cs">
       <SubType>Form</SubType>
@@ -139,11 +158,20 @@
     <EmbeddedResource Include="Controls\TeamRegisterandManage\addrole.resx">
       <DependentUpon>addrole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TeamRegisterandManage\Manage.resx">
-      <DependentUpon>Manage.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\TeamRegisterandManage\DefineActivity.resx">
+      <DependentUpon>DefineActivity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TeamRegisterandManage\TeamRegisterView.resx">
-      <DependentUpon>TeamRegisterView.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\TeamRegisterandManage\DefineSubTask.resx">
+      <DependentUpon>DefineSubTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TeamRegisterandManage\DefineTask.resx">
+      <DependentUpon>DefineTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TeamRegisterandManage\updatepassword.resx">
+      <DependentUpon>updatepassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\AssignTask.resx">
+      <DependentUpon>AssignTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
@@ -154,8 +182,8 @@
     <EmbeddedResource Include="Home\TaskCalender.resx">
       <DependentUpon>TaskCalender.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\TeamManagement.resx">
-      <DependentUpon>TeamManagement.cs</DependentUpon>
+    <EmbeddedResource Include="Home\TaskManagement.resx">
+      <DependentUpon>TaskManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\TeamRegister.resx">
       <DependentUpon>TeamRegister.cs</DependentUpon>
@@ -180,6 +208,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

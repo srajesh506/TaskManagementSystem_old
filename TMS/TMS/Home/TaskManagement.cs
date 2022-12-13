@@ -11,18 +11,18 @@ using TMS.Controls.TeamRegisterandManage;
 
 namespace TMS.Home
 {
-    public partial class TeamRegister : Form
+    public partial class TaskManagement : Form
     {
-        public TeamRegister()
+        public TaskManagement()
         {
             InitializeComponent();
-            addControl(new TeamRegisterView());
-            panelHome.BackColor = Color.MediumSeaGreen;
+            addControl(new DefineActivity());
+            pnlmanageactivity.BackColor = Color.Black;
         }
         private void LoadTheme()
         {
 
-            foreach (Control btns in this.Controls)
+            foreach (Control btns in this.Controls) 
             {
                 if (btns.GetType() == typeof(Button))
                 {
@@ -52,13 +52,17 @@ namespace TMS.Home
             Button btn = (Button)sender;
             switch(btn.Name)
             {
-                case "btnhome":
-                    addControl(new TeamRegisterView());
-                    panelHome.BackColor = Color.MediumSeaGreen;
+                case "btnmanageactivity":
+                    addControl(new DefineActivity());
+                    pnlmanageactivity.BackColor = Color.Black;
                     break;
-                case "btnManage":
-                    addControl(new Manage());
-                    panelManage.BackColor = Color.MediumSeaGreen;
+                case "btnManagetask":
+                    addControl(new DefineTask());
+                    pnlManagetask.BackColor = Color.Black;
+                    break;
+                case "btnmanagesubtask":
+                    addControl(new DefineSubTask());
+                    pnlmanagesubtask.BackColor = Color.Black;
                     break;
                 default:
                     break;
