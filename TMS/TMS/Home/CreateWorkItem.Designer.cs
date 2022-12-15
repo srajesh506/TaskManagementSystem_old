@@ -1,6 +1,6 @@
 ﻿namespace TMS.Home
 {
-    partial class AssignTask
+    partial class CreateWorkItem
     {
         /// <summary>
         /// Required designer variable.
@@ -38,9 +38,6 @@
             this.btnadd = new System.Windows.Forms.Button();
             this.gbxassigntask = new System.Windows.Forms.GroupBox();
             this.cmbsubtask = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblemp = new System.Windows.Forms.Label();
-            this.listemp = new System.Windows.Forms.CheckedListBox();
             this.cmbtask = new System.Windows.Forms.ComboBox();
             this.lbltask = new System.Windows.Forms.Label();
             this.cmbactivity = new System.Windows.Forms.ComboBox();
@@ -53,7 +50,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dview)).BeginInit();
             this.groupBoxforbutton.SuspendLayout();
             this.gbxassigntask.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,7 +74,7 @@
             this.groupBoxforexistingemployee.Size = new System.Drawing.Size(1076, 289);
             this.groupBoxforexistingemployee.TabIndex = 15;
             this.groupBoxforexistingemployee.TabStop = false;
-            this.groupBoxforexistingemployee.Text = "Task Assigment and Description";
+            this.groupBoxforexistingemployee.Text = "WorkItems";
             // 
             // dview
             // 
@@ -146,8 +142,6 @@
             // gbxassigntask
             // 
             this.gbxassigntask.Controls.Add(this.cmbsubtask);
-            this.gbxassigntask.Controls.Add(this.panel2);
-            this.gbxassigntask.Controls.Add(this.listemp);
             this.gbxassigntask.Controls.Add(this.cmbtask);
             this.gbxassigntask.Controls.Add(this.lbltask);
             this.gbxassigntask.Controls.Add(this.cmbactivity);
@@ -161,7 +155,7 @@
             this.gbxassigntask.Size = new System.Drawing.Size(1076, 228);
             this.gbxassigntask.TabIndex = 12;
             this.gbxassigntask.TabStop = false;
-            this.gbxassigntask.Text = "Assign Task";
+            this.gbxassigntask.Text = "Create WorkItem";
             // 
             // cmbsubtask
             // 
@@ -173,34 +167,6 @@
             this.cmbsubtask.Name = "cmbsubtask";
             this.cmbsubtask.Size = new System.Drawing.Size(296, 29);
             this.cmbsubtask.TabIndex = 14;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.panel2.Controls.Add(this.lblemp);
-            this.panel2.Location = new System.Drawing.Point(794, 23);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(180, 32);
-            this.panel2.TabIndex = 13;
-            // 
-            // lblemp
-            // 
-            this.lblemp.AutoSize = true;
-            this.lblemp.ForeColor = System.Drawing.Color.White;
-            this.lblemp.Location = new System.Drawing.Point(4, 4);
-            this.lblemp.Name = "lblemp";
-            this.lblemp.Size = new System.Drawing.Size(99, 20);
-            this.lblemp.TabIndex = 0;
-            this.lblemp.Text = "Assign Task ";
-            // 
-            // listemp
-            // 
-            this.listemp.CheckOnClick = true;
-            this.listemp.FormattingEnabled = true;
-            this.listemp.Location = new System.Drawing.Point(794, 55);
-            this.listemp.Name = "listemp";
-            this.listemp.Size = new System.Drawing.Size(180, 151);
-            this.listemp.TabIndex = 12;
             // 
             // cmbtask
             // 
@@ -271,18 +237,18 @@
             this.lblsubtaskremark.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.lblsubtaskremark.Location = new System.Drawing.Point(315, 130);
             this.lblsubtaskremark.Name = "lblsubtaskremark";
-            this.lblsubtaskremark.Size = new System.Drawing.Size(160, 19);
+            this.lblsubtaskremark.Size = new System.Drawing.Size(94, 19);
             this.lblsubtaskremark.TabIndex = 5;
-            this.lblsubtaskremark.Text = "SubTask Description";
+            this.lblsubtaskremark.Text = "Description";
             // 
-            // AssignTask
+            // RemarkAssignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 597);
             this.Controls.Add(this.panel1);
-            this.Name = "AssignTask";
-            this.Text = "Assign Task";
+            this.Name = "RemarkAssignment";
+            this.Text = "Create WorkItem";
             this.Load += new System.EventHandler(this.AssignTask_Load);
             this.panel1.ResumeLayout(false);
             this.groupBoxforexistingemployee.ResumeLayout(false);
@@ -290,8 +256,6 @@
             this.groupBoxforbutton.ResumeLayout(false);
             this.gbxassigntask.ResumeLayout(false);
             this.gbxassigntask.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -314,9 +278,6 @@
         private System.Windows.Forms.RichTextBox rtxtremark;
         private System.Windows.Forms.Label lblsubtaskname;
         private System.Windows.Forms.Label lblsubtaskremark;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckedListBox listemp;
-        private System.Windows.Forms.Label lblemp;
         private System.Windows.Forms.ComboBox cmbsubtask;
     }
 }

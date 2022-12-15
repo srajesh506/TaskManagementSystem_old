@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace TMS.Home
 {
-    public partial class AssignTask : Form
+    public partial class CreateWorkItem : Form
     {
         App_Code.CodeTMS obj = new App_Code.CodeTMS();
         static string activityid;
         static string taskid;
         static string Subtaskid;
-        static string Getempid;
-        public AssignTask()
+        static string id;
+        public CreateWorkItem()
         {
             InitializeComponent();
             LoadTheme();
@@ -25,7 +25,7 @@ namespace TMS.Home
             getSubtaskDefault();
             GetAllData();
             enabledisablebuttons(2);
-            GetallEmployee();
+            //GetallEmployee();
            
         }
         public void enabledisablebuttons(int flag)
@@ -35,8 +35,6 @@ namespace TMS.Home
                 btnsave.Enabled = false;
                 btnmodify.Enabled = false;
                 btncancel.Enabled = false;
-                listemp.Enabled = false;
-
             }
             if (flag == 1) //Add Data
             {
@@ -46,9 +44,8 @@ namespace TMS.Home
                 rtxtremark.Enabled = true;
                 btnadd.Enabled = false;
                 cmbactivity.Enabled = true;
-                listemp.Enabled = true;
-                //cmbtask.Enabled = true;
-                //cmbsubtask.Enabled = true;
+                cmbtask.Enabled = true;
+                cmbsubtask.Enabled = true;
             }
             if (flag == 2)//modify and Cancel
             {
@@ -61,10 +58,10 @@ namespace TMS.Home
                 cmbactivity.Enabled = false;
                 cmbtask.Enabled = false;
                 cmbsubtask.Enabled = false;
-                for (int i = 0; i < listemp.Items.Count; i++)
-                {
-                        listemp.SetItemChecked(i, false);
-                }
+                //for (int i = 0; i < listemp.Items.Count; i++)
+                //{
+                //        listemp.SetItemChecked(i, false);
+                //}
             }
             if (flag == 3)
             {
@@ -130,9 +127,6 @@ namespace TMS.Home
             {
                 DataSet ds_task = new DataSet();
                 ds_task = obj.GetDataFromTable("Select * from tbl_task where activityid='" + cmbactivity.SelectedValue + "'");
-                if(ds_task.Tables[0].Rows.Count>0)
-                {
-                    cmbtask.Enabled = true;
                     DataRow dr_task;
                     dr_task = ds_task.Tables[0].NewRow();
                     dr_task.ItemArray = new object[] { 0, "--Select Task--" };
@@ -140,8 +134,6 @@ namespace TMS.Home
                     cmbtask.ValueMember = "taskid";
                     cmbtask.DisplayMember = "taskName";
                     cmbtask.DataSource = ds_task.Tables[0];
-                }
-               
                 //if (cmbactivity.SelectedIndex > 0)
                 //{
                 //    dview.DataSource = null;
@@ -219,34 +211,33 @@ namespace TMS.Home
                 }
                 if (rtxtremark.Text == "")
                 {
-                    MessageBox.Show("Please enter SubTask Description!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please enter Description!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     rtxtremark.Select();
                     return;
                 }
-                DataTable dt = new DataTable();
-                dt = obj.GetDataFromTable("Select * from View_AssignTask where activityid='" + cmbactivity.SelectedValue + "' and Empid='"+ Getempid + "' and taskid='"+ cmbtask.SelectedValue + "' and subtaskid='"+ cmbsubtask.SelectedValue + "' and StatusId='6'").Tables[0];
-                if (dt.Rows.Count <= 0)
-                {
-                    foreach (object itemChecked in listemp.CheckedItems)
-                    {
-                        DataRowView castedItem = itemChecked as DataRowView;
-                        string EmpName = Convert.ToString(castedItem["EmpName"]);
-                        int? empid = Convert.ToInt32(castedItem["empID"]);
-                        dt = obj.GetDataFromTable("Select * from View_AssignTask where activityid='" + cmbactivity.SelectedValue + "' and Empid='" + empid + "' and taskid='" + cmbtask.SelectedValue + "' and subtaskid='" + cmbsubtask.SelectedValue + "' and StatusId='6'").Tables[0];
-                        if (dt.Rows.Count <= 0)
-                        {
-                            obj.FireQuery("insert into tbl_AssignTask(activityid,taskid,subtaskid,employeeid,AssignedDateTime,HandoverDatetime,status,Remark)Values('" + cmbactivity.SelectedValue + "','" + cmbtask.SelectedValue + "','" + cmbsubtask.SelectedValue + "','" + empid + "','" + DateTime.Now.ToString("yyyy - MM - dd HH: mm:ss") + "','" + DateTime.Now.ToString("yyyy - MM - dd HH: mm:ss") + "','6','" + rtxtremark.Text + "')");
-                        }else
-                        {
-                            MessageBox.Show("Data already exists!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    obj.clearControls(gbxassigntask);
-                    GetAllData();
-                    enabledisablebuttons(2);
-                    MessageBox.Show("Data modify Successfully!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                MessageBox.Show("Data already exists!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //DataTable dt = new DataTable();
+                //dt = obj.GetDataFromTable("Select * from View_AssignTask where activityid='" + cmbactivity.SelectedValue + "' and Empid='"+ Getempid + "' and taskid='"+ cmbtask.SelectedValue + "' and subtaskid='"+ cmbsubtask.SelectedValue + "' and StatusId='6'").Tables[0];
+                //if (dt.Rows.Count <= 0)
+                //{
+                    //foreach (object itemChecked in listemp.CheckedItems)
+                    //{
+                    //    DataRowView castedItem = itemChecked as DataRowView;
+                    //    string EmpName = Convert.ToString(castedItem["EmpName"]);
+                    //    int? empid = Convert.ToInt32(castedItem["empID"]);
+                    //    dt = obj.GetDataFromTable("Select * from View_AssignTask where activityid='" + cmbactivity.SelectedValue + "' and Empid='" + empid + "' and taskid='" + cmbtask.SelectedValue + "' and subtaskid='" + cmbsubtask.SelectedValue + "' and StatusId='6'").Tables[0];
+                    //    if (dt.Rows.Count <= 0)
+                    //    {
+                            obj.FireQuery("update tbl_assignmentItems Set activityid='" + cmbactivity.SelectedValue + "',taskid='" + cmbtask.SelectedValue + "',subtaskid='" + cmbsubtask.SelectedValue + "',Remark='" + rtxtremark.Text + "' where Id='"+ id +"' ");
+                //}else
+                //{
+                //    MessageBox.Show("Data already exists!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+                //}
+
+                obj.clearControls(gbxassigntask);
+                GetAllData();
+                enabledisablebuttons(2);
+                MessageBox.Show("Data modify Successfully!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -286,13 +277,13 @@ namespace TMS.Home
                     rtxtremark.Select();
                     return;
                 }
-                foreach (object itemChecked in listemp.CheckedItems)
-                {
-                    DataRowView castedItem = itemChecked as DataRowView;
-                    string EmpName = Convert.ToString(castedItem["EmpName"]);
-                    int? empid = Convert.ToInt32(castedItem["empID"]);
-                    obj.FireQuery("insert into tbl_AssignTask(activityid,taskid,subtaskid,employeeid,AssignedDateTime,status,Remark)Values('" + cmbactivity.SelectedValue + "','" + cmbtask.SelectedValue + "','" + cmbsubtask.SelectedValue + "','" + empid + "','" + DateTime.Now.ToString("yyyy - MM - dd HH: mm:ss") + "','1','"+ rtxtremark.Text +"')");
-                }
+                //foreach (object itemChecked in listemp.CheckedItems)
+                //{
+                //    DataRowView castedItem = itemChecked as DataRowView;
+                //    string EmpName = Convert.ToString(castedItem["EmpName"]);
+                //    int? empid = Convert.ToInt32(castedItem["empID"]);
+                    obj.FireQuery("insert into tbl_assignmentItems(activityid,taskid,subtaskid,Remark)Values('" + cmbactivity.SelectedValue + "','" + cmbtask.SelectedValue + "','" + cmbsubtask.SelectedValue + "','"+ rtxtremark.Text +"')");
+                //}
                 GetAllData();
                 obj.clearControls(gbxassigntask);
                 enabledisablebuttons(2);
@@ -311,25 +302,25 @@ namespace TMS.Home
                 int index = dview.CurrentRow.Index;
                 if (index <= dview.RowCount - 1)
                 {
-                    taskid = Convert.ToString(dview.Rows[index].Cells[6].Value);
-                    activityid = Convert.ToString(dview.Rows[index].Cells[7].Value);
-                    Subtaskid = Convert.ToString(dview.Rows[index].Cells[8].Value);
-                    Getempid = Convert.ToString(dview.Rows[index].Cells[9].Value);
-                    cmbactivity.SelectedValue= Convert.ToString(dview.Rows[index].Cells[7].Value);
-                    cmbtask.SelectedValue= Convert.ToString(dview.Rows[index].Cells[6].Value);
-                    cmbsubtask.SelectedValue= Convert.ToString(dview.Rows[index].Cells[8].Value);
-                    rtxtremark.Text = Convert.ToString(dview.Rows[index].Cells[2].Value);
-                    for (int i = 0; i < listemp.Items.Count; i++)
-                    {
-                        if (Getempid == ((DataRowView)listemp.Items[i])[1].ToString())
-                        {
-                            listemp.SetItemChecked(i, true);
-                        }
-                        else
-                        {
-                            listemp.SetItemChecked(i, false);
-                        }
-                    }
+                    activityid = Convert.ToString(dview.Rows[index].Cells[6].Value);
+                    taskid = Convert.ToString(dview.Rows[index].Cells[5].Value);
+                    Subtaskid = Convert.ToString(dview.Rows[index].Cells[7].Value);
+                    id = Convert.ToString(dview.Rows[index].Cells[8].Value);
+                    cmbactivity.SelectedValue= Convert.ToString(dview.Rows[index].Cells[6].Value);
+                    cmbtask.SelectedValue= Convert.ToString(dview.Rows[index].Cells[5].Value);
+                    cmbsubtask.SelectedValue= Convert.ToString(dview.Rows[index].Cells[7].Value);
+                    rtxtremark.Text = Convert.ToString(dview.Rows[index].Cells[4].Value);
+                    //for (int i = 0; i < listemp.Items.Count; i++)
+                    //{
+                    //    if (Getempid == ((DataRowView)listemp.Items[i])[1].ToString())
+                    //    {
+                    //        listemp.SetItemChecked(i, true);
+                    //    }
+                    //    else
+                    //    {
+                    //        listemp.SetItemChecked(i, false);
+                    //    }
+                    //}
                     enabledisablebuttons(3);
 
                 }
@@ -339,20 +330,20 @@ namespace TMS.Home
 
             }
         }
-        public void GetallEmployee()
-        {
-            try
-            {
-                listemp.DataSource = null;
-                listemp.DataSource = obj.GetDataFromTable("Select EmpName,empid,isactive from UserMaster where IsActive=1").Tables[0];
-                listemp.ValueMember = "empid";
-                listemp.DisplayMember = "EmpName";
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "TMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //public void GetallEmployee()
+        //{
+        //    try
+        //    {
+        //        listemp.DataSource = null;
+        //        listemp.DataSource = obj.GetDataFromTable("Select EmpName,empid,isactive from UserMaster where IsActive=1").Tables[0];
+        //        listemp.ValueMember = "empid";
+        //        listemp.DisplayMember = "EmpName";
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "TMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         //private void cmbsubtask_SelectedIndexChanged(object sender, EventArgs e)
         //{
@@ -391,17 +382,16 @@ namespace TMS.Home
         public void GetAllData()
         {
             dview.DataSource = null;
-            dview.DataSource = obj.GetDataFromTable("Select ROW_NUMBER()OVER (ORDER BY TaskassignmentId)SLNO,EmpName as [Employee Name],Remark,activityname as [Activity Name],taskName as [Task Name],subtaskname as [SubTask Name],taskid,activityid,Subtaskid,empid from View_AssignTask where IsActive=1").Tables[0];
+            dview.DataSource = obj.GetDataFromTable("Select ROW_NUMBER()OVER (ORDER BY Id)SLNO,activityname as [Activity Name],taskName as [Task Name],subtaskname as [SubTask Name],Remark,Taskid,activityid,Subtaskid,id from View_assignmentItems where IsActive=1").Tables[0];
             dview.Columns[0].Width = 70;
             dview.Columns[1].Width = 150;
             dview.Columns[2].Width = 300;
             dview.Columns[3].Width = 200;
-            dview.Columns[4].Width = 200;
-            dview.Columns[5].Width = 150;
+            dview.Columns[4].Width = 300;
+            dview.Columns[5].Visible = false;
             dview.Columns[6].Visible = false;
             dview.Columns[7].Visible = false;
             dview.Columns[8].Visible = false;
-            dview.Columns[9].Visible = false;
             dview.ReadOnly = true;
 
         }

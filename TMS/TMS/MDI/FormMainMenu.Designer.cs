@@ -302,7 +302,7 @@
             this.btnassigntask.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnassigntask.Size = new System.Drawing.Size(243, 58);
             this.btnassigntask.TabIndex = 2;
-            this.btnassigntask.Text = "             Assign Task";
+            this.btnassigntask.Text = "             Create WorkItem";
             this.btnassigntask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnassigntask.UseVisualStyleBackColor = true;
             this.btnassigntask.Click += new System.EventHandler(this.btnassigntask_Click);

@@ -40,4 +40,4 @@ C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandMan
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.DefineSubTask.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.DefineTask.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.updatepassword.resources
-C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.AssignTask.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.CreateWorkItem.resources

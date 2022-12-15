@@ -426,7 +426,7 @@ namespace TMS.MDI
           
             waitform.Show(this);
             Thread.Sleep(2000);
-            OpenChildForm(new Home.AssignTask(), sender);
+            OpenChildForm(new Home.CreateWorkItem(), sender);
             ActiveButton(sender);
             waitform.Close();
         }

@@ -91,11 +91,11 @@
     <Compile Include="Controls\TeamRegisterandManage\updatepassword.Designer.cs">
       <DependentUpon>updatepassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\AssignTask.cs">
+    <Compile Include="Home\CreateWorkItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\AssignTask.Designer.cs">
-      <DependentUpon>AssignTask.cs</DependentUpon>
+    <Compile Include="Home\CreateWorkItem.Designer.cs">
+      <DependentUpon>CreateWorkItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\FormAbout.cs">
       <SubType>Form</SubType>
@@ -170,8 +170,8 @@
     <EmbeddedResource Include="Controls\TeamRegisterandManage\updatepassword.resx">
       <DependentUpon>updatepassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\AssignTask.resx">
-      <DependentUpon>AssignTask.cs</DependentUpon>
+    <EmbeddedResource Include="Home\CreateWorkItem.resx">
+      <DependentUpon>CreateWorkItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
