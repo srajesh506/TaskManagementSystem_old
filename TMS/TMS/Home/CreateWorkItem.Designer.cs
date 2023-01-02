@@ -241,13 +241,13 @@
             this.lblsubtaskremark.TabIndex = 5;
             this.lblsubtaskremark.Text = "Description";
             // 
-            // RemarkAssignment
+            // CreateWorkItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 597);
             this.Controls.Add(this.panel1);
-            this.Name = "RemarkAssignment";
+            this.Name = "CreateWorkItem";
             this.Text = "Create WorkItem";
             this.Load += new System.EventHandler(this.AssignTask_Load);
             this.panel1.ResumeLayout(false);

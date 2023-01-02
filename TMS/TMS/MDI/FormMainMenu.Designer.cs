@@ -44,7 +44,9 @@
             this.btnteamregister = new System.Windows.Forms.Button();
             this.HomeChildContainer = new System.Windows.Forms.Panel();
             this.btnmasterdata = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlmainworkitm = new System.Windows.Forms.Panel();
+            this.btnassignworkItem = new System.Windows.Forms.Button();
+            this.btnworkitem = new System.Windows.Forms.Button();
             this.btnassigntask = new System.Windows.Forms.Button();
             this.panelTS1 = new System.Windows.Forms.Panel();
             this.btntasksheet = new System.Windows.Forms.Button();
@@ -71,6 +73,7 @@
             this.HomeTimer = new System.Windows.Forms.Timer(this.components);
             this.ReportTimer = new System.Windows.Forms.Timer(this.components);
             this.SettingTimer = new System.Windows.Forms.Timer(this.components);
+            this.WorkItemtimer = new System.Windows.Forms.Timer(this.components);
             this.Sidebar.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picemp)).BeginInit();
@@ -79,7 +82,7 @@
             this.panelTC.SuspendLayout();
             this.panelTS.SuspendLayout();
             this.HomeChildContainer.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlmainworkitm.SuspendLayout();
             this.panelTS1.SuspendLayout();
             this.panelTC1.SuspendLayout();
             this.panelReportAnalysis.SuspendLayout();
@@ -94,7 +97,7 @@
             this.Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.Sidebar.Controls.Add(this.panelLogo);
             this.Sidebar.Controls.Add(this.HomeContainer);
-            this.Sidebar.Controls.Add(this.panel1);
+            this.Sidebar.Controls.Add(this.pnlmainworkitm);
             this.Sidebar.Controls.Add(this.panelTS1);
             this.Sidebar.Controls.Add(this.panelTC1);
             this.Sidebar.Controls.Add(this.panelReportAnalysis);
@@ -282,35 +285,78 @@
             this.btnmasterdata.UseVisualStyleBackColor = false;
             this.btnmasterdata.Click += new System.EventHandler(this.btnmasterdata_Click);
             // 
-            // panel1
+            // pnlmainworkitm
             // 
-            this.panel1.Controls.Add(this.btnassigntask);
-            this.panel1.Location = new System.Drawing.Point(3, 211);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(242, 37);
-            this.panel1.TabIndex = 8;
+            this.pnlmainworkitm.BackColor = System.Drawing.Color.White;
+            this.pnlmainworkitm.Controls.Add(this.btnassignworkItem);
+            this.pnlmainworkitm.Controls.Add(this.btnworkitem);
+            this.pnlmainworkitm.Controls.Add(this.btnassigntask);
+            this.pnlmainworkitm.ForeColor = System.Drawing.Color.White;
+            this.pnlmainworkitm.Location = new System.Drawing.Point(3, 211);
+            this.pnlmainworkitm.MaximumSize = new System.Drawing.Size(241, 170);
+            this.pnlmainworkitm.MinimumSize = new System.Drawing.Size(241, 50);
+            this.pnlmainworkitm.Name = "pnlmainworkitm";
+            this.pnlmainworkitm.Size = new System.Drawing.Size(241, 55);
+            this.pnlmainworkitm.TabIndex = 8;
+            // 
+            // btnassignworkItem
+            // 
+            this.btnassignworkItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnassignworkItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnassignworkItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnassignworkItem.ForeColor = System.Drawing.Color.White;
+            this.btnassignworkItem.Image = ((System.Drawing.Image)(resources.GetObject("btnassignworkItem.Image")));
+            this.btnassignworkItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnassignworkItem.Location = new System.Drawing.Point(-1, 112);
+            this.btnassignworkItem.Name = "btnassignworkItem";
+            this.btnassignworkItem.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnassignworkItem.Size = new System.Drawing.Size(243, 58);
+            this.btnassignworkItem.TabIndex = 2;
+            this.btnassignworkItem.Text = "             Assign WorkItem";
+            this.btnassignworkItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnassignworkItem.UseVisualStyleBackColor = false;
+            this.btnassignworkItem.Click += new System.EventHandler(this.btnassignworkItem_Click);
+            // 
+            // btnworkitem
+            // 
+            this.btnworkitem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnworkitem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnworkitem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnworkitem.ForeColor = System.Drawing.Color.White;
+            this.btnworkitem.Image = ((System.Drawing.Image)(resources.GetObject("btnworkitem.Image")));
+            this.btnworkitem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnworkitem.Location = new System.Drawing.Point(-1, -1);
+            this.btnworkitem.Name = "btnworkitem";
+            this.btnworkitem.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnworkitem.Size = new System.Drawing.Size(243, 58);
+            this.btnworkitem.TabIndex = 2;
+            this.btnworkitem.Text = "             WorkItem";
+            this.btnworkitem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnworkitem.UseVisualStyleBackColor = false;
+            this.btnworkitem.Click += new System.EventHandler(this.btnworkitem_Click);
             // 
             // btnassigntask
             // 
+            this.btnassigntask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnassigntask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnassigntask.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnassigntask.ForeColor = System.Drawing.Color.White;
             this.btnassigntask.Image = ((System.Drawing.Image)(resources.GetObject("btnassigntask.Image")));
             this.btnassigntask.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnassigntask.Location = new System.Drawing.Point(-1, -8);
+            this.btnassigntask.Location = new System.Drawing.Point(-1, 56);
             this.btnassigntask.Name = "btnassigntask";
             this.btnassigntask.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnassigntask.Size = new System.Drawing.Size(243, 58);
             this.btnassigntask.TabIndex = 2;
             this.btnassigntask.Text = "             Create WorkItem";
             this.btnassigntask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnassigntask.UseVisualStyleBackColor = true;
+            this.btnassigntask.UseVisualStyleBackColor = false;
             this.btnassigntask.Click += new System.EventHandler(this.btnassigntask_Click);
             // 
             // panelTS1
             // 
             this.panelTS1.Controls.Add(this.btntasksheet);
-            this.panelTS1.Location = new System.Drawing.Point(3, 254);
+            this.panelTS1.Location = new System.Drawing.Point(3, 272);
             this.panelTS1.Name = "panelTS1";
             this.panelTS1.Size = new System.Drawing.Size(242, 37);
             this.panelTS1.TabIndex = 4;
@@ -335,7 +381,7 @@
             // panelTC1
             // 
             this.panelTC1.Controls.Add(this.btntaskcalender);
-            this.panelTC1.Location = new System.Drawing.Point(3, 297);
+            this.panelTC1.Location = new System.Drawing.Point(3, 315);
             this.panelTC1.Name = "panelTC1";
             this.panelTC1.Size = new System.Drawing.Size(242, 37);
             this.panelTC1.TabIndex = 2;
@@ -366,7 +412,7 @@
             this.panelReportAnalysis.Controls.Add(this.btnTGVT);
             this.panelReportAnalysis.Controls.Add(this.btnTVTG);
             this.panelReportAnalysis.Controls.Add(this.btnreportanalysis);
-            this.panelReportAnalysis.Location = new System.Drawing.Point(3, 340);
+            this.panelReportAnalysis.Location = new System.Drawing.Point(3, 358);
             this.panelReportAnalysis.MaximumSize = new System.Drawing.Size(241, 276);
             this.panelReportAnalysis.MinimumSize = new System.Drawing.Size(241, 50);
             this.panelReportAnalysis.Name = "panelReportAnalysis";
@@ -441,7 +487,7 @@
             this.btnTVTG.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnTVTG.Size = new System.Drawing.Size(245, 57);
             this.btnTVTG.TabIndex = 2;
-            this.btnTVTG.Text = "             Team Vs Task Group";
+            this.btnTVTG.Text = "             Status Based Report";
             this.btnTVTG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTVTG.UseVisualStyleBackColor = false;
             this.btnTVTG.Click += new System.EventHandler(this.btnTVTG_Click);
@@ -470,7 +516,7 @@
             this.pnlmainsettings.Controls.Add(this.btnupdatepwd);
             this.pnlmainsettings.Controls.Add(this.btnSettings);
             this.pnlmainsettings.ForeColor = System.Drawing.Color.White;
-            this.pnlmainsettings.Location = new System.Drawing.Point(3, 396);
+            this.pnlmainsettings.Location = new System.Drawing.Point(3, 414);
             this.pnlmainsettings.MaximumSize = new System.Drawing.Size(241, 106);
             this.pnlmainsettings.MinimumSize = new System.Drawing.Size(241, 50);
             this.pnlmainsettings.Name = "pnlmainsettings";
@@ -617,11 +663,10 @@
             // 
             // picboxMDIImage
             // 
-            this.picboxMDIImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picboxMDIImage.Image = ((System.Drawing.Image)(resources.GetObject("picboxMDIImage.Image")));
-            this.picboxMDIImage.Location = new System.Drawing.Point(0, 0);
+            this.picboxMDIImage.Location = new System.Drawing.Point(581, 139);
             this.picboxMDIImage.Name = "picboxMDIImage";
-            this.picboxMDIImage.Size = new System.Drawing.Size(899, 613);
+            this.picboxMDIImage.Size = new System.Drawing.Size(212, 132);
             this.picboxMDIImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picboxMDIImage.TabIndex = 0;
             this.picboxMDIImage.TabStop = false;
@@ -640,6 +685,11 @@
             // 
             this.SettingTimer.Interval = 10;
             this.SettingTimer.Tick += new System.EventHandler(this.SettingTimer_Tick);
+            // 
+            // WorkItemtimer
+            // 
+            this.WorkItemtimer.Interval = 10;
+            this.WorkItemtimer.Tick += new System.EventHandler(this.WorkITemtimer_Tick);
             // 
             // FormMainMenu
             // 
@@ -663,7 +713,7 @@
             this.panelTC.ResumeLayout(false);
             this.panelTS.ResumeLayout(false);
             this.HomeChildContainer.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.pnlmainworkitm.ResumeLayout(false);
             this.panelTS1.ResumeLayout(false);
             this.panelTC1.ResumeLayout(false);
             this.panelReportAnalysis.ResumeLayout(false);
@@ -717,7 +767,10 @@
         private System.Windows.Forms.Timer SettingTimer;
         private System.Windows.Forms.Button btnupdatepwd;
         private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnassigntask;
+        private System.Windows.Forms.Panel pnlmainworkitm;
+        private System.Windows.Forms.Button btnassignworkItem;
+        private System.Windows.Forms.Button btnworkitem;
+        private System.Windows.Forms.Timer WorkItemtimer;
     }
 }

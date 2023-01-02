@@ -104,7 +104,41 @@ namespace TMS.App_Code
 
             }
         }
+        public void addworkitem(int activityid, int taskid, int subtaskid, string remark)
+        {
+            if (Con.State == ConnectionState.Closed)
+            {
+                Con.Open();
+            }
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "addworkitem";
+            cmd.Connection = Con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@activityid", SqlDbType.Int).Value = activityid;
+            cmd.Parameters.Add("@taskid", SqlDbType.Int).Value = taskid;
+            cmd.Parameters.Add("@subtaskid", SqlDbType.Int).Value = subtaskid;
+            cmd.Parameters.Add("@remark", SqlDbType.NVarChar).Value = remark;
+            cmd.ExecuteNonQuery();
+        }
 
+
+
+        public void addworkassignmentitem(int id, int workitemid, int empid, int status)
+        {
+            if (Con.State == ConnectionState.Closed)
+            {
+                Con.Open();
+            }
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "addworkassignmentitem";
+            cmd.Connection = Con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Id", SqlDbType.Int).Value = id;
+            cmd.Parameters.Add("@assigmentitemId", SqlDbType.Int).Value = workitemid;
+            cmd.Parameters.Add("@empid", SqlDbType.Int).Value = empid;
+            cmd.Parameters.Add("@status", SqlDbType.NVarChar).Value = status;
+            cmd.ExecuteNonQuery();
+        }
         public void FireQuery(string Query)
         {
             if (Con.State == ConnectionState.Closed)

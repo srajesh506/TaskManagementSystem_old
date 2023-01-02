@@ -41,6 +41,23 @@
     <ApplicationIcon>TMS.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.pdfa.5.5.13.3\lib\itextsharp.pdfa.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -90,6 +107,36 @@
     </Compile>
     <Compile Include="Controls\TeamRegisterandManage\updatepassword.Designer.cs">
       <DependentUpon>updatepassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\TaskCalender_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\TaskCalender_New.Designer.cs">
+      <DependentUpon>TaskCalender_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\UserControlBlank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\UserControlBlank.Designer.cs">
+      <DependentUpon>UserControlBlank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\UserControlDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\UserControlDays.Designer.cs">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\WorkItemAssignments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\WorkItemAssignments.Designer.cs">
+      <DependentUpon>WorkItemAssignments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\WorkItemAssignments_old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\WorkItemAssignments_old.Designer.cs">
+      <DependentUpon>WorkItemAssignments_old.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\CreateWorkItem.cs">
       <SubType>Form</SubType>
@@ -155,6 +202,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Code\ThemeColor.cs" />
+    <Compile Include="Reporting\StatusBasedReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\StatusBasedReport.Designer.cs">
+      <DependentUpon>StatusBasedReport.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controls\TeamRegisterandManage\addrole.resx">
       <DependentUpon>addrole.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +222,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\TeamRegisterandManage\updatepassword.resx">
       <DependentUpon>updatepassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\TaskCalender_New.resx">
+      <DependentUpon>TaskCalender_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\UserControlBlank.resx">
+      <DependentUpon>UserControlBlank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\UserControlDays.resx">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\WorkItemAssignments.resx">
+      <DependentUpon>WorkItemAssignments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\WorkItemAssignments_old.resx">
+      <DependentUpon>WorkItemAssignments_old.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\CreateWorkItem.resx">
       <DependentUpon>CreateWorkItem.cs</DependentUpon>
@@ -210,6 +278,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reporting\StatusBasedReport.resx">
+      <DependentUpon>StatusBasedReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

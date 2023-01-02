@@ -19,6 +19,7 @@ namespace TMS.MDI
         bool homecollaps= true;
         bool Reportcollaps = true;
         bool Settingscollaps = true;
+        bool WorkItemcollaps = true;
         private Form activeForm;
         waitformfunc waitform = new waitformfunc();
         App_Code.CodeTMS obj = new App_Code.CodeTMS();
@@ -160,7 +161,7 @@ namespace TMS.MDI
 
         private void btntaskcalender_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Home.frmtaskCalender(), sender);
+            OpenChildForm(new Home.TaskCalender_New(), sender);
             waitform.Show(this);
             Thread.Sleep(2000);
             ActiveButton(sender);
@@ -303,7 +304,7 @@ namespace TMS.MDI
         }
         private void btnTVTG_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Home.GroupTask(), sender);
+            OpenChildForm(new Reporting.StatusBasedReport(), sender);
             waitform.Show(this);
             Thread.Sleep(2000);
             ActiveButton(sender);
@@ -427,6 +428,42 @@ namespace TMS.MDI
             waitform.Show(this);
             Thread.Sleep(2000);
             OpenChildForm(new Home.CreateWorkItem(), sender);
+            ActiveButton(sender);
+            waitform.Close();
+        }
+
+        private void WorkITemtimer_Tick(object sender, EventArgs e)
+        {
+            if (WorkItemcollaps)
+            {
+                pnlmainworkitm.Height = pnlmainworkitm.Height + 10;
+                if (pnlmainworkitm.Height == pnlmainworkitm.MaximumSize.Height)
+                {
+                    WorkItemcollaps = false;
+                    WorkItemtimer.Stop();
+                }
+            }
+            else
+            {
+                pnlmainworkitm.Height = pnlmainworkitm.Height - 10;
+                if (pnlmainworkitm.Height == pnlmainworkitm.MinimumSize.Height)
+                {
+                    WorkItemcollaps = true;
+                    WorkItemtimer.Stop();
+                }
+            }
+        }
+
+        private void btnworkitem_Click(object sender, EventArgs e)
+        {
+            WorkItemtimer.Start();
+        }
+
+        private void btnassignworkItem_Click(object sender, EventArgs e)
+        {
+            waitform.Show(this);
+            Thread.Sleep(2000);
+            OpenChildForm(new Home.WorkItemAssignments(), sender);
             ActiveButton(sender);
             waitform.Close();
         }

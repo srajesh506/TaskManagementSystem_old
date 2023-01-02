@@ -41,3 +41,13 @@ C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandMan
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.DefineTask.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Controls.TeamRegisterandManage.updatepassword.resources
 C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.CreateWorkItem.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.WorkItemAssignments.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.TaskCalender_New.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.UserControlBlank.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.UserControlDays.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Home.WorkItemAssignments_old.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\obj\Debug\TMS.Reporting.StatusBasedReport.resources
+C:\GitTMS\TaskManagementSystem\TMS\TMS\BouncyCastle.Crypto.dll
+C:\GitTMS\TaskManagementSystem\TMS\TMS\itextsharp.dll
+C:\GitTMS\TaskManagementSystem\TMS\TMS\itextsharp.pdfa.dll
+C:\GitTMS\TaskManagementSystem\TMS\TMS\itextsharp.xml

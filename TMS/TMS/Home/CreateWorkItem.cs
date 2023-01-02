@@ -204,7 +204,7 @@ namespace TMS.Home
                     MessageBox.Show("Please Select Task Name!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if (cmbtask.SelectedIndex == 0)
+                if (cmbsubtask.SelectedIndex == 0)
                 {
                     MessageBox.Show("Please Select SubTask Name!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -227,7 +227,7 @@ namespace TMS.Home
                     //    dt = obj.GetDataFromTable("Select * from View_AssignTask where activityid='" + cmbactivity.SelectedValue + "' and Empid='" + empid + "' and taskid='" + cmbtask.SelectedValue + "' and subtaskid='" + cmbsubtask.SelectedValue + "' and StatusId='6'").Tables[0];
                     //    if (dt.Rows.Count <= 0)
                     //    {
-                            obj.FireQuery("update tbl_assignmentItems Set activityid='" + cmbactivity.SelectedValue + "',taskid='" + cmbtask.SelectedValue + "',subtaskid='" + cmbsubtask.SelectedValue + "',Remark='" + rtxtremark.Text + "' where Id='"+ id +"' ");
+                            obj.FireQuery("update tbl_workitems Set activityid='" + cmbactivity.SelectedValue + "',taskid='" + cmbtask.SelectedValue + "',subtaskid='" + cmbsubtask.SelectedValue + "',Remark='" + rtxtremark.Text + "' where Id='"+ id +"' ");
                 //}else
                 //{
                 //    MessageBox.Show("Data already exists!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -282,8 +282,13 @@ namespace TMS.Home
                 //    DataRowView castedItem = itemChecked as DataRowView;
                 //    string EmpName = Convert.ToString(castedItem["EmpName"]);
                 //    int? empid = Convert.ToInt32(castedItem["empID"]);
-                    obj.FireQuery("insert into tbl_assignmentItems(activityid,taskid,subtaskid,Remark)Values('" + cmbactivity.SelectedValue + "','" + cmbtask.SelectedValue + "','" + cmbsubtask.SelectedValue + "','"+ rtxtremark.Text +"')");
+                //obj.FireQuery("insert into tbl_workitems(activityid,taskid,subtaskid,Remark)Values('" + cmbactivity.SelectedValue + "','" + cmbtask.SelectedValue + "','" + cmbsubtask.SelectedValue + "','"+ rtxtremark.Text +"')");
                 //}
+                int actityid = (int)cmbactivity.SelectedValue;
+                int taskid = (int)cmbtask.SelectedValue;
+                int subtaskid = (int)cmbsubtask.SelectedValue;
+                string remark = rtxtremark.Text;
+                obj.addworkitem(actityid, taskid, subtaskid, remark);
                 GetAllData();
                 obj.clearControls(gbxassigntask);
                 enabledisablebuttons(2);
@@ -382,7 +387,7 @@ namespace TMS.Home
         public void GetAllData()
         {
             dview.DataSource = null;
-            dview.DataSource = obj.GetDataFromTable("Select ROW_NUMBER()OVER (ORDER BY Id)SLNO,activityname as [Activity Name],taskName as [Task Name],subtaskname as [SubTask Name],Remark,Taskid,activityid,Subtaskid,id from View_assignmentItems where IsActive=1").Tables[0];
+            dview.DataSource = obj.GetDataFromTable("Select ROW_NUMBER()OVER (ORDER BY Id)SLNO,activityname as [Activity Name],taskName as [Task Name],subtaskname as [SubTask Name],Remark,Taskid,activityid,Subtaskid,id from View_workitems where IsActive=1").Tables[0];
             dview.Columns[0].Width = 70;
             dview.Columns[1].Width = 150;
             dview.Columns[2].Width = 300;

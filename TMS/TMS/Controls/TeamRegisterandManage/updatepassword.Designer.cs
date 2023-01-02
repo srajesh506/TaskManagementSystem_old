@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(updatepassword));
             this.pnlaccount = new System.Windows.Forms.Panel();
             this.lblinstruction = new System.Windows.Forms.Label();
-            this.btnlogin = new System.Windows.Forms.Button();
+            this.btnchangepwd = new System.Windows.Forms.Button();
             this.lblchangeyourpwd = new System.Windows.Forms.Label();
             this.grbpwd = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -56,7 +56,7 @@
             // pnlaccount
             // 
             this.pnlaccount.Controls.Add(this.lblinstruction);
-            this.pnlaccount.Controls.Add(this.btnlogin);
+            this.pnlaccount.Controls.Add(this.btnchangepwd);
             this.pnlaccount.Controls.Add(this.lblchangeyourpwd);
             this.pnlaccount.Controls.Add(this.grbpwd);
             this.pnlaccount.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -75,19 +75,19 @@
             this.lblinstruction.TabIndex = 13;
             this.lblinstruction.Text = "A strong password helps prevent unauthorized access to your software.";
             // 
-            // btnlogin
+            // btnchangepwd
             // 
-            this.btnlogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(181)))), ((int)(((byte)(171)))));
-            this.btnlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlogin.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlogin.ForeColor = System.Drawing.Color.White;
-            this.btnlogin.Location = new System.Drawing.Point(649, 435);
-            this.btnlogin.Name = "btnlogin";
-            this.btnlogin.Size = new System.Drawing.Size(148, 35);
-            this.btnlogin.TabIndex = 12;
-            this.btnlogin.Text = "Change Password";
-            this.btnlogin.UseVisualStyleBackColor = false;
-            this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click);
+            this.btnchangepwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(181)))), ((int)(((byte)(171)))));
+            this.btnchangepwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnchangepwd.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnchangepwd.ForeColor = System.Drawing.Color.White;
+            this.btnchangepwd.Location = new System.Drawing.Point(649, 435);
+            this.btnchangepwd.Name = "btnchangepwd";
+            this.btnchangepwd.Size = new System.Drawing.Size(148, 35);
+            this.btnchangepwd.TabIndex = 12;
+            this.btnchangepwd.Text = "Change Password";
+            this.btnchangepwd.UseVisualStyleBackColor = false;
+            this.btnchangepwd.Click += new System.EventHandler(this.btnlogin_Click);
             // 
             // lblchangeyourpwd
             // 
@@ -251,7 +251,7 @@
 
         private System.Windows.Forms.Panel pnlaccount;
         private System.Windows.Forms.Label lblinstruction;
-        private System.Windows.Forms.Button btnlogin;
+        private System.Windows.Forms.Button btnchangepwd;
         private System.Windows.Forms.Label lblchangeyourpwd;
         private System.Windows.Forms.GroupBox grbpwd;
         private System.Windows.Forms.Panel panel4;
