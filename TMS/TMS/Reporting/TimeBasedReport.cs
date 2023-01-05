@@ -10,14 +10,14 @@ using System.Threading;
 
 namespace TMS.Reporting
 {
-    public partial class StatusBasedReport : Form
+    public partial class TimeBasedReport : Form
     {
         App_Code.CodeTMS obj = new App_Code.CodeTMS();
-        public StatusBasedReport()
+        public TimeBasedReport()
         {
             InitializeComponent();
             LoadTheme();
-            cmbstatus.SelectedText = "--Select Status--";
+            //cmbassignee.SelectedText = "--Select Assignee--";
             GetAllData("0");
         }
         private void LoadTheme()
@@ -34,26 +34,16 @@ namespace TMS.Reporting
                 }
             }
           
-            lblstatus.ForeColor = ThemeColor.PrimaryColor;
+            lblassignee.ForeColor = ThemeColor.PrimaryColor;
             //lblexport.ForeColor = ThemeColor.PrimaryColor;
             dview.ForeColor = ThemeColor.PrimaryColor;
             groupBoxforeTaskBasedReport.ForeColor = ThemeColor.PrimaryColor;
         }
 
-        private void StatusBasedReport_Load(object sender, EventArgs e)
+        private void AssigneeBasedReport_Load(object sender, EventArgs e)
         {
             try
             {
-                DataSet ds = new DataSet();
-                ds = obj.GetDataFromTable("Select * from tbl_status");
-                DataRow dr;
-                dr = ds.Tables[0].NewRow();
-                dr.ItemArray = new object[] { 0, "--Select Status--" };
-                ds.Tables[0].Rows.InsertAt(dr, 0);
-                cmbstatus.ValueMember = "Statusid";
-                cmbstatus.DisplayMember = "Status";
-                cmbstatus.DataSource = ds.Tables[0];
-
 
             }
             catch (Exception ex)
@@ -62,50 +52,20 @@ namespace TMS.Reporting
             }
         }
 
-        private void cmbstatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-               
-                   
-                    GetAllData(cmbstatus.SelectedValue.ToString());
-                    
-                
-                
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "TMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
         public void GetAllData(string statusid)
         {
-            if (cmbstatus.SelectedIndex > 0)
-            {
-                dview.DataSource = null;
-                dview.DataSource = obj.GetDataFromTable("SELECT dbo.tbl_workitems.Remark AS WorkItem, FORMAT(dbo.tbl_workitemsassignment.Start_Date, 'dd-MMM-yy hh:mm:ss') AS StartDate, FORMAT(dbo.tbl_workitemsassignment.[HandOver/ClosedDate],'dd-MMM-yy hh:mm:ss') AS ClosedDate, ISNULL(dbo.tbl_status.Status,'--Choose--') AS Status, ISNULL(UserMaster_1.EmpName, '--Choose--') AS Employee, dbo.UserMaster.EmpName AS HandedoverTO FROM dbo.tbl_workitemsassignment INNER JOIN dbo.tbl_workitems ON dbo.tbl_workitemsassignment.assigmentitemId = dbo.tbl_workitems.Id INNER JOIN dbo.tbl_status ON dbo.tbl_workitemsassignment.Status = dbo.tbl_status.StatusId LEFT OUTER JOIN dbo.UserMaster ON dbo.tbl_workitemsassignment.empid_handedover = dbo.UserMaster.empid LEFT OUTER JOIN dbo.UserMaster AS UserMaster_1 ON dbo.tbl_workitemsassignment.empid_assigned = UserMaster_1.empid where dbo.tbl_workitemsassignment.Status='" + cmbstatus.SelectedValue + "'").Tables[0];
-                dview.Columns[0].Width = 500;
-                dview.Columns[1].Width = 100;
-                dview.Columns[2].Width = 100;
-                dview.Columns[3].Width = 100;
-                dview.Columns[4].Width = 100;
-                dview.Columns[5].Width = 150;
-                dview.Columns[0].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dview.ReadOnly = true;
-            }
-            else
-            {
+           
                 dview.DataSource = null;
                 dview.DataSource = obj.GetDataFromTable("SELECT dbo.tbl_workitems.Remark AS WorkItem, FORMAT(dbo.tbl_workitemsassignment.Start_Date, 'dd-MMM-yy hh:mm:ss') AS StartDate, FORMAT(dbo.tbl_workitemsassignment.[HandOver/ClosedDate],'dd-MMM-yy hh:mm:ss') AS ClosedDate, ISNULL(dbo.tbl_status.Status,'--Choose--') AS Status, ISNULL(UserMaster_1.EmpName, '--Choose--') AS Employee, dbo.UserMaster.EmpName AS HandedoverTO FROM dbo.tbl_workitemsassignment INNER JOIN dbo.tbl_workitems ON dbo.tbl_workitemsassignment.assigmentitemId = dbo.tbl_workitems.Id INNER JOIN dbo.tbl_status ON dbo.tbl_workitemsassignment.Status = dbo.tbl_status.StatusId LEFT OUTER JOIN dbo.UserMaster ON dbo.tbl_workitemsassignment.empid_handedover = dbo.UserMaster.empid LEFT OUTER JOIN dbo.UserMaster AS UserMaster_1 ON dbo.tbl_workitemsassignment.empid_assigned = UserMaster_1.empid").Tables[0];
-                dview.Columns[0].Width = 500;
+                dview.Columns[0].Width = 600;
                 dview.Columns[1].Width = 100;
                 dview.Columns[2].Width = 100;
                 dview.Columns[3].Width = 100;
                 dview.Columns[4].Width = 100;
-                dview.Columns[5].Width = 150;
                 dview.Columns[0].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 dview.ReadOnly = true;
-            }
+            
 
         }
 
@@ -129,6 +89,7 @@ namespace TMS.Reporting
             for (int i = 1; i < dview.Columns.Count + 1; i++)
             {
                 worksheet.Cells[1, i] = dview.Columns[i - 1].HeaderText;
+           
             }
             // storing Each row and column value to excel sheet  
             for (int i = 0; i < dview.Rows.Count - 1; i++)

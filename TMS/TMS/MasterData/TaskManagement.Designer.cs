@@ -31,18 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskManagement));
             this.pnltablelayout = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlManagetask = new System.Windows.Forms.Panel();
+            this.btnManagetask = new System.Windows.Forms.Button();
             this.pnlmanageactivity = new System.Windows.Forms.Panel();
             this.btnmanageactivity = new System.Windows.Forms.Button();
             this.pnlmanagesubtask = new System.Windows.Forms.Panel();
             this.btnmanagesubtask = new System.Windows.Forms.Button();
-            this.pnlManagetask = new System.Windows.Forms.Panel();
-            this.btnManagetask = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
             this.pnltablelayout.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.pnlManagetask.SuspendLayout();
             this.pnlmanageactivity.SuspendLayout();
             this.pnlmanagesubtask.SuspendLayout();
-            this.pnlManagetask.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnltablelayout
@@ -74,6 +74,36 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(990, 90);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // pnlManagetask
+            // 
+            this.pnlManagetask.BackColor = System.Drawing.Color.Silver;
+            this.pnlManagetask.Controls.Add(this.btnManagetask);
+            this.pnlManagetask.Location = new System.Drawing.Point(335, 5);
+            this.pnlManagetask.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.pnlManagetask.Name = "pnlManagetask";
+            this.pnlManagetask.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.pnlManagetask.Size = new System.Drawing.Size(319, 79);
+            this.pnlManagetask.TabIndex = 1;
+            // 
+            // btnManagetask
+            // 
+            this.btnManagetask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnManagetask.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManagetask.FlatAppearance.BorderSize = 0;
+            this.btnManagetask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagetask.ForeColor = System.Drawing.Color.White;
+            this.btnManagetask.Image = ((System.Drawing.Image)(resources.GetObject("btnManagetask.Image")));
+            this.btnManagetask.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnManagetask.Location = new System.Drawing.Point(0, 0);
+            this.btnManagetask.Margin = new System.Windows.Forms.Padding(0);
+            this.btnManagetask.Name = "btnManagetask";
+            this.btnManagetask.Size = new System.Drawing.Size(319, 70);
+            this.btnManagetask.TabIndex = 3;
+            this.btnManagetask.Text = "Manage Task";
+            this.btnManagetask.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnManagetask.UseVisualStyleBackColor = false;
+            this.btnManagetask.Click += new System.EventHandler(this.btn_click);
+            // 
             // pnlmanageactivity
             // 
             this.pnlmanageactivity.BackColor = System.Drawing.Color.Black;
@@ -95,6 +125,7 @@
             this.btnmanageactivity.Image = ((System.Drawing.Image)(resources.GetObject("btnmanageactivity.Image")));
             this.btnmanageactivity.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnmanageactivity.Location = new System.Drawing.Point(0, 0);
+            this.btnmanageactivity.Margin = new System.Windows.Forms.Padding(0);
             this.btnmanageactivity.Name = "btnmanageactivity";
             this.btnmanageactivity.Size = new System.Drawing.Size(319, 70);
             this.btnmanageactivity.TabIndex = 2;
@@ -108,11 +139,11 @@
             this.pnlmanagesubtask.BackColor = System.Drawing.Color.Silver;
             this.pnlmanagesubtask.Controls.Add(this.btnmanagesubtask);
             this.pnlmanagesubtask.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlmanagesubtask.Location = new System.Drawing.Point(663, 5);
+            this.pnlmanagesubtask.Location = new System.Drawing.Point(665, 5);
             this.pnlmanagesubtask.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.pnlmanagesubtask.Name = "pnlmanagesubtask";
             this.pnlmanagesubtask.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.pnlmanagesubtask.Size = new System.Drawing.Size(322, 79);
+            this.pnlmanagesubtask.Size = new System.Drawing.Size(320, 79);
             this.pnlmanagesubtask.TabIndex = 2;
             // 
             // btnmanagesubtask
@@ -125,42 +156,14 @@
             this.btnmanagesubtask.Image = ((System.Drawing.Image)(resources.GetObject("btnmanagesubtask.Image")));
             this.btnmanagesubtask.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnmanagesubtask.Location = new System.Drawing.Point(0, 0);
+            this.btnmanagesubtask.Margin = new System.Windows.Forms.Padding(0);
             this.btnmanagesubtask.Name = "btnmanagesubtask";
-            this.btnmanagesubtask.Size = new System.Drawing.Size(322, 70);
+            this.btnmanagesubtask.Size = new System.Drawing.Size(320, 70);
             this.btnmanagesubtask.TabIndex = 4;
             this.btnmanagesubtask.Text = "Manage Subtask";
             this.btnmanagesubtask.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnmanagesubtask.UseVisualStyleBackColor = false;
             this.btnmanagesubtask.Click += new System.EventHandler(this.btn_click);
-            // 
-            // pnlManagetask
-            // 
-            this.pnlManagetask.BackColor = System.Drawing.Color.Silver;
-            this.pnlManagetask.Controls.Add(this.btnManagetask);
-            this.pnlManagetask.Location = new System.Drawing.Point(334, 5);
-            this.pnlManagetask.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
-            this.pnlManagetask.Name = "pnlManagetask";
-            this.pnlManagetask.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.pnlManagetask.Size = new System.Drawing.Size(319, 79);
-            this.pnlManagetask.TabIndex = 1;
-            // 
-            // btnManagetask
-            // 
-            this.btnManagetask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnManagetask.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnManagetask.FlatAppearance.BorderSize = 0;
-            this.btnManagetask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManagetask.ForeColor = System.Drawing.Color.White;
-            this.btnManagetask.Image = ((System.Drawing.Image)(resources.GetObject("btnManagetask.Image")));
-            this.btnManagetask.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnManagetask.Location = new System.Drawing.Point(0, 0);
-            this.btnManagetask.Name = "btnManagetask";
-            this.btnManagetask.Size = new System.Drawing.Size(319, 70);
-            this.btnManagetask.TabIndex = 3;
-            this.btnManagetask.Text = "Manage Task";
-            this.btnManagetask.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnManagetask.UseVisualStyleBackColor = false;
-            this.btnManagetask.Click += new System.EventHandler(this.btn_click);
             // 
             // panelMain
             // 
@@ -184,9 +187,9 @@
             this.Text = "Task Management";
             this.pnltablelayout.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.pnlManagetask.ResumeLayout(false);
             this.pnlmanageactivity.ResumeLayout(false);
             this.pnlmanagesubtask.ResumeLayout(false);
-            this.pnlManagetask.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

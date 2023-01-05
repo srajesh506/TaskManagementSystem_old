@@ -62,6 +62,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,82 +74,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\CodeTMS.cs" />
-    <Compile Include="App_Code\CommonFunction.cs" />
-    <Compile Include="App_Code\Function.cs" />
-    <Compile Include="App_Code\Global.cs" />
-    <Compile Include="App_Code\Message.cs" />
-    <Compile Include="Controls\TeamRegisterandManage\addrole.cs">
+    <Compile Include="Common\CodeTMS.cs" />
+    <Compile Include="Common\CommonFunction.cs" />
+    <Compile Include="Common\Function.cs" />
+    <Compile Include="Common\Global.cs" />
+    <Compile Include="Common\RoundPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterData\addrole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\addrole.Designer.cs">
+    <Compile Include="MasterData\addrole.Designer.cs">
       <DependentUpon>addrole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\DefineActivity.cs">
+    <Compile Include="MasterData\DefineActivity.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\DefineActivity.Designer.cs">
+    <Compile Include="MasterData\DefineActivity.Designer.cs">
       <DependentUpon>DefineActivity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\DefineSubTask.cs">
+    <Compile Include="MasterData\DefineSubTask.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\DefineSubTask.Designer.cs">
+    <Compile Include="MasterData\DefineSubTask.Designer.cs">
       <DependentUpon>DefineSubTask.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\DefineTask.cs">
+    <Compile Include="MasterData\DefineTask.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\DefineTask.Designer.cs">
+    <Compile Include="MasterData\DefineTask.Designer.cs">
       <DependentUpon>DefineTask.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\updatepassword.cs">
+    <Compile Include="Settings\updatepassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\TeamRegisterandManage\updatepassword.Designer.cs">
+    <Compile Include="Settings\updatepassword.Designer.cs">
       <DependentUpon>updatepassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\TaskCalender_New.cs">
+    <Compile Include="WorkItem\WorkItemAssignments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\TaskCalender_New.Designer.cs">
-      <DependentUpon>TaskCalender_New.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Home\UserControlBlank.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Home\UserControlBlank.Designer.cs">
-      <DependentUpon>UserControlBlank.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Home\UserControlDays.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Home\UserControlDays.Designer.cs">
-      <DependentUpon>UserControlDays.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Home\WorkItemAssignments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Home\WorkItemAssignments.Designer.cs">
+    <Compile Include="WorkItem\WorkItemAssignments.Designer.cs">
       <DependentUpon>WorkItemAssignments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\WorkItemAssignments_old.cs">
+    <Compile Include="WorkItem\CreateWorkItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\WorkItemAssignments_old.Designer.cs">
-      <DependentUpon>WorkItemAssignments_old.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Home\CreateWorkItem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Home\CreateWorkItem.Designer.cs">
+    <Compile Include="WorkItem\CreateWorkItem.Designer.cs">
       <DependentUpon>CreateWorkItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Home\FormAbout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Home\FormAbout.Designer.cs">
-      <DependentUpon>FormAbout.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\GroupTask.cs">
       <SubType>Form</SubType>
@@ -156,22 +129,16 @@
     <Compile Include="Home\GroupTask.Designer.cs">
       <DependentUpon>GroupTask.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\TaskCalender.cs">
+    <Compile Include="MasterData\TaskManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\TaskCalender.Designer.cs">
-      <DependentUpon>TaskCalender.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Home\TaskManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Home\TaskManagement.Designer.cs">
+    <Compile Include="MasterData\TaskManagement.Designer.cs">
       <DependentUpon>TaskManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\TeamRegister.cs">
+    <Compile Include="MasterData\TeamRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\TeamRegister.Designer.cs">
+    <Compile Include="MasterData\TeamRegister.Designer.cs">
       <DependentUpon>TeamRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\TaskSheet.cs">
@@ -180,18 +147,30 @@
     <Compile Include="Home\TaskSheet.Designer.cs">
       <DependentUpon>TaskSheet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\wait\waiting.cs">
+    <Compile Include="wait\waiting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\wait\waiting.Designer.cs">
+    <Compile Include="wait\waiting.Designer.cs">
       <DependentUpon>waiting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\wait\waitformfunc.cs" />
+    <Compile Include="wait\waitformfunc.cs" />
     <Compile Include="LoginwithEmpid.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginwithEmpid.Designer.cs">
       <DependentUpon>LoginwithEmpid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashBoard\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDI\FormMainMenu - Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI\FormMainMenu - Copy.Designer.cs">
+      <DependentUpon>FormMainMenu - Copy.cs</DependentUpon>
     </Compile>
     <Compile Include="MDI\FormMainMenu.cs">
       <SubType>Form</SubType>
@@ -201,69 +180,69 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="App_Code\ThemeColor.cs" />
+    <Compile Include="Common\ThemeColor.cs" />
+    <Compile Include="Reporting\TimeBasedReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\TimeBasedReport.Designer.cs">
+      <DependentUpon>TimeBasedReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\AssigneeBasedReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\AssigneeBasedReport.Designer.cs">
+      <DependentUpon>AssigneeBasedReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporting\StatusBasedReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reporting\StatusBasedReport.Designer.cs">
       <DependentUpon>StatusBasedReport.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Controls\TeamRegisterandManage\addrole.resx">
+    <EmbeddedResource Include="MasterData\addrole.resx">
       <DependentUpon>addrole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TeamRegisterandManage\DefineActivity.resx">
+    <EmbeddedResource Include="MasterData\DefineActivity.resx">
       <DependentUpon>DefineActivity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TeamRegisterandManage\DefineSubTask.resx">
+    <EmbeddedResource Include="MasterData\DefineSubTask.resx">
       <DependentUpon>DefineSubTask.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TeamRegisterandManage\DefineTask.resx">
+    <EmbeddedResource Include="MasterData\DefineTask.resx">
       <DependentUpon>DefineTask.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TeamRegisterandManage\updatepassword.resx">
+    <EmbeddedResource Include="Settings\updatepassword.resx">
       <DependentUpon>updatepassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\TaskCalender_New.resx">
-      <DependentUpon>TaskCalender_New.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\UserControlBlank.resx">
-      <DependentUpon>UserControlBlank.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\UserControlDays.resx">
-      <DependentUpon>UserControlDays.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\WorkItemAssignments.resx">
+    <EmbeddedResource Include="WorkItem\WorkItemAssignments.resx">
       <DependentUpon>WorkItemAssignments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\WorkItemAssignments_old.resx">
-      <DependentUpon>WorkItemAssignments_old.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\CreateWorkItem.resx">
+    <EmbeddedResource Include="WorkItem\CreateWorkItem.resx">
       <DependentUpon>CreateWorkItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\FormAbout.resx">
-      <DependentUpon>FormAbout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\GroupTask.resx">
       <DependentUpon>GroupTask.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\TaskCalender.resx">
-      <DependentUpon>TaskCalender.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\TaskManagement.resx">
+    <EmbeddedResource Include="MasterData\TaskManagement.resx">
       <DependentUpon>TaskManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\TeamRegister.resx">
+    <EmbeddedResource Include="MasterData\TeamRegister.resx">
       <DependentUpon>TeamRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\TaskSheet.resx">
       <DependentUpon>TaskSheet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\wait\waiting.resx">
+    <EmbeddedResource Include="wait\waiting.resx">
       <DependentUpon>waiting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginwithEmpid.resx">
       <DependentUpon>LoginwithEmpid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI\FormMainMenu - Copy.resx">
+      <DependentUpon>FormMainMenu - Copy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI\FormMainMenu.resx">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
@@ -278,6 +257,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reporting\TimeBasedReport.resx">
+      <DependentUpon>TimeBasedReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\AssigneeBasedReport.resx">
+      <DependentUpon>AssigneeBasedReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporting\StatusBasedReport.resx">
       <DependentUpon>StatusBasedReport.cs</DependentUpon>
     </EmbeddedResource>

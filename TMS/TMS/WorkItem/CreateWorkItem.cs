@@ -134,6 +134,8 @@ namespace TMS.Home
                     cmbtask.ValueMember = "taskid";
                     cmbtask.DisplayMember = "taskName";
                     cmbtask.DataSource = ds_task.Tables[0];
+                GetAllData1();
+                rtxtremark.Text = "";
                 //if (cmbactivity.SelectedIndex > 0)
                 //{
                 //    dview.DataSource = null;
@@ -175,6 +177,8 @@ namespace TMS.Home
                         cmbsubtask.ValueMember = "Subtaskid";
                         cmbsubtask.DisplayMember = "SubtaskName";
                         cmbsubtask.DataSource = ds_SubTask.Tables[0];
+                        GetAllData1();
+                        rtxtremark.Text = "";
                     }
                    
                 }
@@ -399,6 +403,61 @@ namespace TMS.Home
             dview.Columns[8].Visible = false;
             dview.ReadOnly = true;
 
+        }
+
+        private void cmbsubtask_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            GetAllData1();
+            rtxtremark.Text = "";
+        }
+        public void GetAllData1()
+        {
+            if (cmbactivity.SelectedIndex > 0)
+            {
+                dview.DataSource = null;
+                dview.DataSource = obj.GetDataFromTable("Select ROW_NUMBER()OVER (ORDER BY Id)SLNO,activityname as [Activity Name],taskName as [Task Name],subtaskname as [SubTask Name],Remark,Taskid,activityid,Subtaskid,id from View_workitems where IsActive=1 and activityid='" + cmbactivity.SelectedValue + "'").Tables[0];
+                dview.Columns[0].Width = 70;
+                dview.Columns[1].Width = 150;
+                dview.Columns[2].Width = 300;
+                dview.Columns[3].Width = 200;
+                dview.Columns[4].Width = 300;
+                dview.Columns[5].Visible = false;
+                dview.Columns[6].Visible = false;
+                dview.Columns[7].Visible = false;
+                dview.Columns[8].Visible = false;
+                dview.ReadOnly = true;
+                if (cmbtask.SelectedIndex > 0)
+                {
+                    dview.DataSource = null;
+                    dview.DataSource = obj.GetDataFromTable("Select ROW_NUMBER()OVER (ORDER BY Id)SLNO,activityname as [Activity Name],taskName as [Task Name],subtaskname as [SubTask Name],Remark,Taskid,activityid,Subtaskid,id from View_workitems where IsActive=1 and activityid='" + cmbactivity.SelectedValue + "'and Taskid='" + cmbtask.SelectedValue + "'").Tables[0];
+                    dview.Columns[0].Width = 70;
+                    dview.Columns[1].Width = 150;
+                    dview.Columns[2].Width = 300;
+                    dview.Columns[3].Width = 200;
+                    dview.Columns[4].Width = 300;
+                    dview.Columns[5].Visible = false;
+                    dview.Columns[6].Visible = false;
+                    dview.Columns[7].Visible = false;
+                    dview.Columns[8].Visible = false;
+                    dview.ReadOnly = true;
+                    if (cmbsubtask.SelectedIndex > 0)
+                    {
+                        dview.DataSource = null;
+                        dview.DataSource = obj.GetDataFromTable("Select ROW_NUMBER()OVER (ORDER BY Id)SLNO,activityname as [Activity Name],taskName as [Task Name],subtaskname as [SubTask Name],Remark,Taskid,activityid,Subtaskid,id from View_workitems where IsActive=1 and activityid='" + cmbactivity.SelectedValue + "'and Taskid='" + cmbtask.SelectedValue + "' and Subtaskid='" + cmbsubtask.SelectedValue + "'").Tables[0];
+                        dview.Columns[0].Width = 70;
+                        dview.Columns[1].Width = 150;
+                        dview.Columns[2].Width = 300;
+                        dview.Columns[3].Width = 200;
+                        dview.Columns[4].Width = 300;
+                        dview.Columns[5].Visible = false;
+                        dview.Columns[6].Visible = false;
+                        dview.Columns[7].Visible = false;
+                        dview.Columns[8].Visible = false;
+                        dview.ReadOnly = true;
+                    }
+                }
+            }
         }
     }
 }

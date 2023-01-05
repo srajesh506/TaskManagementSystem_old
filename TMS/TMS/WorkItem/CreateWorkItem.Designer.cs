@@ -167,6 +167,7 @@
             this.cmbsubtask.Name = "cmbsubtask";
             this.cmbsubtask.Size = new System.Drawing.Size(296, 29);
             this.cmbsubtask.TabIndex = 14;
+            this.cmbsubtask.SelectedIndexChanged += new System.EventHandler(this.cmbsubtask_SelectedIndexChanged);
             // 
             // cmbtask
             // 

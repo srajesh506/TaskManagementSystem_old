@@ -9,7 +9,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 //using static ;
 //using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 //using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -24,16 +23,19 @@ namespace TMS.Home
         static int workitemid;
         static int status;
         static int empid;
+        static string empname;
+        static string remarks;
         static int modifiedcolumn;
+
 
         public WorkItemAssignments()
         {
             InitializeComponent();
             LoadTheme();
             GetAllData();
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "MM dd, yyyy";
-            
+            //dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            //dateTimePicker1.CustomFormat = "MM dd, yyyy";
+
         }
         //public void enabledisablebuttons(int flag)
         //{
@@ -48,7 +50,7 @@ namespace TMS.Home
         //        btnsave.Enabled = true;
         //        btncancel.Enabled = true;
         //        btnadd.Enabled = false;
-                               
+
         //    }
         //    if (flag == 2)//modify and Cancel
         //    {
@@ -79,49 +81,79 @@ namespace TMS.Home
                 }
             }
             //btnadd.ForeColor = ThemeColor.PrimaryColor;
-            btnsave.ForeColor = ThemeColor.PrimaryColor;
+            //btnsave.ForeColor = ThemeColor.PrimaryColor;
             //btnmodify.ForeColor = ThemeColor.PrimaryColor;
             //btncancel.ForeColor = ThemeColor.PrimaryColor;
             //groupBoxforbutton.ForeColor = ThemeColor.PrimaryColor;
             groupBoxforexistingemployee.ForeColor = ThemeColor.PrimaryColor;
         }
 
+        private void dview_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            for (int i = 0; i < dview.Rows.Count; i++)
+            {
+                if (dview.Rows[i].Cells[3].Value.ToString() == "Completed")
+                {
+                    dview.Rows[i].DefaultCellStyle.BackColor = Color.Lavender;
+                    dview.Rows[i].DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(181)))), ((int)(((byte)(171)))));
+                }
+                else if (dview.Rows[i].Cells[3].Value.ToString() == "HandedOver")
+                {
+                    dview.Rows[i].DefaultCellStyle.BackColor = Color.LightYellow;
+                    dview.Rows[i].DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(181)))), ((int)(((byte)(171)))));
+                }
+                else if (dview.Rows[i].Cells[3].Value.ToString() == "Pending")
+                {
+                    dview.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    dview.Rows[i].DefaultCellStyle.ForeColor = Color.WhiteSmoke;
+                }
+                else if (dview.Rows[i].Cells[3].Value.ToString() == "InProgress" || dview.Rows[i].Cells[3].Value.ToString() == "Monitoring")
+                {
+                    dview.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
+                    dview.Rows[i].DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(181)))), ((int)(((byte)(171)))));
+                }
+                else
+                {
+                    dview.Rows[i].DefaultCellStyle.BackColor = System.Drawing.SystemColors.Window;
+                    dview.Rows[i].DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(181)))), ((int)(((byte)(171)))));
+                }
 
-        public void GetAllData()
+            }
+
+        }
+
+        public void GetAllData(bool filterflag=false)
         {
             dview.DataSource = null;
-            dview.DataSource = obj.GetDataFromTable("SELECT dbo.tbl_workitemsassignment.Id as Id, dbo.tbl_workitemsassignment.assigmentitemId as WorkItemId, dbo.tbl_workitems.Remark as WorkItem, FORMAT(dbo.tbl_workitemsassignment.Start_Date, 'dd-MMM-yy') AS StartDate, dbo.tbl_workitemsassignment.[HandOver/ClosedDate] as ClosedDate, ISNULL(dbo.tbl_status.Status,'--Choose--')  as Status, ISNULL(dbo.UserMaster.EmpName,'--Choose--')  as Employee FROM dbo.tbl_workitemsassignment INNER JOIN dbo.tbl_workitems ON dbo.tbl_workitemsassignment.assigmentitemId = dbo.tbl_workitems.Id INNER JOIN dbo.tbl_status ON dbo.tbl_workitemsassignment.Status = dbo.tbl_status.StatusId LEFT OUTER JOIN dbo.UserMaster ON dbo.tbl_workitemsassignment.empid = dbo.UserMaster.empid").Tables[0]; 
-            dview.Columns[0].Visible = false;
-            dview.Columns[1].Visible = false;
-            dview.Columns[2].Width = 440;
-            dview.Columns[3].Width = 130;
-            dview.Columns[4].Width = 130;
-            dview.Columns[5].Width = 170;
-            dview.Columns[6].Width = 150;
+            //dview.DataSource = obj.GetDataFromTable("SELECT dbo.tbl_workitemsassignment.Id as Id, dbo.tbl_workitemsassignment.assigmentitemId as WorkItemId, dbo.tbl_workitems.Remark as WorkItem, FORMAT(dbo.tbl_workitemsassignment.Start_Date, 'dd-MMM-yy') AS StartDate, dbo.tbl_workitemsassignment.[HandOver/ClosedDate] as ClosedDate, ISNULL(dbo.tbl_status.Status,'--Choose--')  as Status, ISNULL(dbo.UserMaster.EmpName,'--Choose--')  as Employee FROM dbo.tbl_workitemsassignment INNER JOIN dbo.tbl_workitems ON dbo.tbl_workitemsassignment.assigmentitemId = dbo.tbl_workitems.Id INNER JOIN dbo.tbl_status ON dbo.tbl_workitemsassignment.Status = dbo.tbl_status.StatusId LEFT OUTER JOIN dbo.UserMaster ON dbo.tbl_workitemsassignment.empid = dbo.UserMaster.empid").Tables[0];
+
+            if (filterflag)
+            {
+                dview.DataSource = obj.getworkassignmentitems(true).Tables[0];
+            }
+            else
+            { 
+                dview.DataSource = obj.getworkassignmentitems().Tables[0];
+            }
+
+
+            dview.Columns[0].Visible = false;               //Id
+            dview.Columns[1].Visible = false;               //WorkItemID
+            dview.Columns[2].Width = 175;                   //WorkItemDescription
+            dview.Columns[3].Width = 90;                    //Status
+            dview.Columns[4].Width = 100;                   //AssignedTo
+            dview.Columns[5].Width = 150;                   //StartDate
+            dview.Columns[6].Width = 150;                   //ClosedDate
+            dview.Columns[7].Width = 105;                   //HandedOverTo
+            dview.Columns[8].Width = 300;                   //Remarks
 
             dview.Columns[2].ReadOnly = true;
             dview.Columns[3].ReadOnly = true;
             dview.Columns[4].ReadOnly = true;
             dview.Columns[5].ReadOnly = true;
             dview.Columns[6].ReadOnly = true;
-
-            
-
-            for (int i = 0; i < dview.Rows.Count; i++) 
-            {
-                if (dview.Rows[i].Cells[5].Value.ToString() == "Completed")
-                {
-                    dview.Rows[i].DefaultCellStyle = null;
-                    dview.Rows[i].DefaultCellStyle.BackColor= Color.LightGreen;
-                    
-                }
-                else if(dview.Rows[i].Cells[5].Value.ToString() == "HandedOver")
-                {
-                    dview.Rows[i].DefaultCellStyle = null;
-                    dview.Rows[i].DefaultCellStyle.BackColor = Color.LightYellow;
-                }
-
-            }
+            dview.Columns[7].ReadOnly = true;
+            dview.Columns[8].ReadOnly = true;
         }
 
         private void AssignTask_Load(object sender, EventArgs e)
@@ -199,21 +231,12 @@ namespace TMS.Home
             }
             */
         }
-        private void btnadd_Click(object sender, EventArgs e)
-        {
-            //enabledisablebuttons(1);
-        }
-        private void btncancel_Click(object sender, EventArgs e)
-        {
-           
-           
-        }
 
         private void btnsave_Click(object sender, EventArgs e)
         {
             try
             {
-                
+
                 if (dview.Rows.Count > 0)
                 {
                     //for(int i=0;i<=dview.Rows.Count-1; i++)
@@ -227,11 +250,11 @@ namespace TMS.Home
 
                         string assignmentid = row.Cells["assignmentid"].Value.ToString();
                         string empid = row.Cells["Assigned To"].Value.ToString();
-                        string statusid = (row.Cells["Status"].Value.ToString()==null) ? "1" : row.Cells["Status"].Value.ToString();
-                        DateTime dt = (Convert.ToDateTime(row.Cells["StartDate"].Value)== Convert.ToDateTime("1 / 1 / 0001 12:00:00 AM")) ? DateTime.Now : Convert.ToDateTime(row.Cells["StartDate"].Value) ;
+                        string statusid = (row.Cells["Status"].Value.ToString() == null) ? "1" : row.Cells["Status"].Value.ToString();
+                        DateTime dt = (Convert.ToDateTime(row.Cells["StartDate"].Value) == Convert.ToDateTime("1 / 1 / 0001 12:00:00 AM")) ? DateTime.Now : Convert.ToDateTime(row.Cells["StartDate"].Value);
                         //dateTimePicker1.Value = DateTime.ParseExact(row.Cells["StartDate"].Value.ToString(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture); //? DateTime.ParseExact(DateTime.Now.ToString(),"(yyyy, M, d)", CultureInfo.InvariantCulture) : DateTime.ParseExact(row.Cells["StartDate"].Value.ToString(), "(yyyy, M, d)", CultureInfo.InvariantCulture);
                         //string HandOverORClosedDate = (row.Cells["HandOverORClosedDate"].Value.ToString()==null)? DateTime.Now.ToString() : row.Cells["HandOverORClosedDate"].Value.ToString();
-                        obj.FireQuery("insert into tbl_workitemsassignment(assigmentitemId,empid,Status,Start_Date)Values('" + assignmentid + "','"+ empid + "','"+ statusid + "','"+ dt.ToString("MM/dd/yyyy") + "')");
+                        obj.FireQuery("insert into tbl_workitemsassignment(assigmentitemId,empid,Status,Start_Date)Values('" + assignmentid + "','" + empid + "','" + statusid + "','" + dt.ToString("MM/dd/yyyy") + "')");
                     }
                     MessageBox.Show("Data Saved Successfully!", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -248,12 +271,13 @@ namespace TMS.Home
             if (e.RowIndex != -1)
             {
                 dview.Controls.Clear();
-                if (dview.CurrentRow.Cells[5].Value.ToString() != "Completed" && dview.CurrentRow.Cells[5].Value.ToString() != "HandedOver")
+                if (dview.CurrentRow.Cells[3].Value.ToString() != "Completed" && dview.CurrentRow.Cells[3].Value.ToString() != "HandedOver")
                 {
                     int index = dview.CurrentRow.Index;
                     if (index <= dview.RowCount - 1)
                     {
                         id = (int)dview.Rows[index].Cells[0].Value;
+                        empname = dview.Rows[index].Cells[4].Value.ToString();
                         workitemid = (int)dview.Rows[index].Cells[1].Value;
                         modifiedcolumn = (int)e.ColumnIndex;
                     }
@@ -279,9 +303,14 @@ namespace TMS.Home
                         // An event attached to dateTimePicker1 which is fired when DateTimeControl is closed.
                         dateTimePicker1.CloseUp += new EventHandler(DateTimePickerClose);
                     }*/
-                    if (e.ColumnIndex == 6)
+                    if (e.ColumnIndex == 8)
                     {
-                        dview.CurrentCell.ReadOnly= false;
+                        dview.CurrentCell.ReadOnly = false;
+                        remarks = dview.CurrentCell.Value.ToString();
+                    }
+                    if (e.ColumnIndex == 4)
+                    {
+                        dview.CurrentCell.ReadOnly = false;
                         DataSet ds_EmpName = new DataSet();
                         ds_EmpName = obj.GetDataFromTable("Select empid, EmpName from UserMaster where IsActive=1");
                         DataRow dr_EmpNameNoValues;
@@ -302,9 +331,9 @@ namespace TMS.Home
                         empnamecombo.Show();
                         empnamecombo.SelectedIndex = empnamecombo.FindString(dview.CurrentCell.Value.ToString());
                     }
-                    if (e.ColumnIndex == 5)
+                    if (e.ColumnIndex == 3)
                     {
-                        if (dview.CurrentRow.Cells[6].Value.ToString() != "--Choose--")
+                        if (dview.CurrentRow.Cells[4].Value.ToString() != "--Choose--")
                         {
                             dview.CurrentCell.ReadOnly = false;
                             DataSet ds_status = new DataSet();
@@ -326,7 +355,7 @@ namespace TMS.Home
                             statuscombo.Leave += new EventHandler(comboLeave);
                             statuscombo.Show();
                             statuscombo.SelectedIndex = statuscombo.FindString(dview.CurrentCell.Value.ToString());
-                        } 
+                        }
                         else
                         {
                             MessageBox.Show("Please assign the Work Item to one of the team members first", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -341,17 +370,6 @@ namespace TMS.Home
                 }
             }
         }
-        private void DateTimePickerChange(object sender, EventArgs e)
-        {
-            
-            dview.CurrentCell.Value = dateTimePicker1.Text.ToString();
-            //MessageBox.Show(string.Format("Date changed to {0}", dateTimePicker1.Text.ToString()));
-        }
-        private void DateTimePickerClose(object sender, EventArgs e)
-        {
-            dateTimePicker1.Visible = false;
-        }
-
         private void comboSelectedIndexChanged(object sender, EventArgs e)
         {
             //ComboBox temp = (ComboBox) sender;
@@ -368,21 +386,56 @@ namespace TMS.Home
             //GetAllData();
         }
 
+        private void savetext(object sender, EventArgs e)
+        {
+            //dview.CurrentCell.Value = e.;
+            if (modifiedcolumn == 8)    // status
+            {
+                if (remarks != dview.CurrentCell.Value.ToString())
+                {
+                    obj.addworkassignmentitem(id, workitemid, 0, 0, dview.CurrentCell.Value.ToString());
+                }
+            }
+            if (chkFilterActive.Checked)
+            {
+                GetAllData(true);
+            }
+            else
+            {
+                GetAllData();
+            }
+            ///temp.Visible = false;
+        }
+
         private void comboLeave(object sender, EventArgs e)
         {
             ComboBox temp = (ComboBox)sender;
             //dview.CurrentCell.Value = temp.GetItemText(temp.SelectedItem);
-            if (modifiedcolumn == 5)    // status
+            if (modifiedcolumn == 3)    // status
             {
                 status = Convert.ToInt32(temp.SelectedValue);
-                obj.addworkassignmentitem(id, workitemid, 0, status);
+                obj.addworkassignmentitem(id, workitemid, 0, status,"");
             }
-            else if (modifiedcolumn == 6) // empId
+            else if (modifiedcolumn == 4) // empId
             {
-                empid = Convert.ToInt32(temp.SelectedValue);
-                obj.addworkassignmentitem(id, workitemid, empid, 0);
+                if (empname != temp.Text)
+                {
+                    empid = Convert.ToInt32(temp.SelectedValue);
+                    obj.addworkassignmentitem(id, workitemid, empid, 0,"");
+                }
+                else
+                {
+                    MessageBox.Show("Assigned To Value has not changed. Please choose a different value than currently assigned", "TMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            GetAllData();
+            if (chkFilterActive.Checked)
+            {
+                GetAllData(true);
+            }
+            else
+            {
+                GetAllData();
+            }
             temp.Visible = false;
         }
         private void dview_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -391,6 +444,17 @@ namespace TMS.Home
             messageBoxCS.AppendFormat("{0} = {1}", "Row", e.Row);
         }
 
-       
+        private void chkFilterActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkFilterActive.Checked)
+            {
+                GetAllData(true);
+            }
+            else
+            {
+                GetAllData();
+            }
+        }
+
     }
 }

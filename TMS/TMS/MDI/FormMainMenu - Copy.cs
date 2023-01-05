@@ -10,7 +10,7 @@ using TMS.App_Code;
 
 namespace TMS.MDI
 {
-    public partial class FormMainMenu : Form
+    public partial class FormMainMenu_Copy : Form
     {
         private Button currentButton;
         private Random random;
@@ -24,7 +24,7 @@ namespace TMS.MDI
         waitformfunc waitform = new waitformfunc();
         App_Code.CodeTMS obj = new App_Code.CodeTMS();
        
-        public FormMainMenu(string  empid)
+        public FormMainMenu_Copy(string  empid)
         {
             InitializeComponent();
             random = new Random();
@@ -43,7 +43,6 @@ namespace TMS.MDI
                 picemp.Image = Image.FromFile(Application.StartupPath + "\\Image\\noimageMDI.png");
                 lblwelcome.Text = "Employee ID: " + empid + "\n" + "Welcome " + obj.GetEmpnameandID("UserDetails", "EmpName", int.Parse(empid));
             }
-           
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -84,31 +83,11 @@ namespace TMS.MDI
 
         private void OpenChildForm(Form childform, Object btnsender)
         {
-           
-                if (activeForm != null)
-                {
-                    activeForm.Close();
-                }
-                ActiveButton(btnsender);
-                activeForm = childform;
-                childform.TopLevel = false;
-                childform.FormBorderStyle = FormBorderStyle.None;
-                childform.Dock = DockStyle.Fill;
-                this.panelDesktopPanel.Controls.Add(childform);
-                this.panelDesktopPanel.Tag = childform;
-                childform.BringToFront();
-                childform.Show();
-                labeltitle.Text = childform.Text;
-            
-            
-        }
-        private void OpenDashBoardForm(Form childform)
-        {
-
-            if (activeForm != null)
+            if(activeForm !=null)
             {
                 activeForm.Close();
             }
+            ActiveButton(btnsender);
             activeForm = childform;
             childform.TopLevel = false;
             childform.FormBorderStyle = FormBorderStyle.None;
@@ -118,8 +97,6 @@ namespace TMS.MDI
             childform.BringToFront();
             childform.Show();
             labeltitle.Text = childform.Text;
-
-
         }
 
         private void DisableButton()
@@ -202,14 +179,12 @@ namespace TMS.MDI
         {
             if (activeForm != null)
                 activeForm.Close();
-            OpenChildForm(new MDI.Dashboard(), sender);
             Reset();
-           
         }
         private void Reset()
         {
             DisableButton();
-            labeltitle.Text = "DASHBOARD";
+            labeltitle.Text = "HOME";
             paneltitlebar.BackColor = Color.FromArgb(0, 150, 136);
             panelLogo.BackColor = Color.FromArgb(35, 40, 45);
             currentButton = null;
@@ -327,7 +302,7 @@ namespace TMS.MDI
             ActiveButton(sender);
             waitform.Close();
         }
-        private void btnstatusbasedreport_Click(object sender, EventArgs e)
+        private void btnTVTG_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Reporting.StatusBasedReport(), sender);
             waitform.Show(this);
@@ -335,17 +310,17 @@ namespace TMS.MDI
             ActiveButton(sender);
             waitform.Close();
         }
-        private void btnAssigneeBaseReport_Click(object sender, EventArgs e)
+        private void btnTGVT_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Reporting.AssigneeBasedReport(), sender);
+            OpenChildForm(new Home.GroupTask(), sender);
             waitform.Show(this);
             Thread.Sleep(2000);
             ActiveButton(sender);
             waitform.Close();
         }
-        private void btnTimeBasedReport_Click(object sender, EventArgs e)
+        private void btnteam_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Reporting.TimeBasedReport(), sender);
+            OpenChildForm(new Home.GroupTask(), sender);
             waitform.Show(this);
             Thread.Sleep(2000);
             ActiveButton(sender);
@@ -495,15 +470,33 @@ namespace TMS.MDI
 
         private void FormMainMenu_Load(object sender, EventArgs e)
         {
-            try
-            {
-                OpenDashBoardForm(new MDI.Dashboard());
-                Reset();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "TMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //try
+            //{
+            //    Datacount();
+            //}
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "TMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
-        }
+        //public void Datacount()
+        //{
+        //    int emp_all = obj.GetDataCountFromTable("Select Count(*) as data from UserMaster");
+        //    lblnumbers.Text = emp_all.ToString();
+        //    int emp_Activeemp = obj.GetDataCountFromTable("Select Count(*) as data from UserMaster where Isactive=1");
+        //    lblactiveonly.Text = emp_Activeemp.ToString();
+        //    int totaltask = obj.GetDataCountFromTable("SELECT Count(*) as data FROM dbo.tbl_workitemsassignment INNER JOIN dbo.tbl_workitems ON dbo.tbl_workitemsassignment.assigmentitemId = dbo.tbl_workitems.Id INNER JOIN dbo.tbl_status ON dbo.tbl_workitemsassignment.Status = dbo.tbl_status.StatusId LEFT OUTER JOIN dbo.UserMaster ON dbo.tbl_workitemsassignment.empid = dbo.UserMaster.empid");
+        //    lbltotaltask.Text = totaltask.ToString();
+        //    int taskcompleted = obj.GetDataCountFromTable("SELECT Count(*) as data FROM dbo.tbl_workitemsassignment INNER JOIN dbo.tbl_workitems ON dbo.tbl_workitemsassignment.assigmentitemId = dbo.tbl_workitems.Id INNER JOIN dbo.tbl_status ON dbo.tbl_workitemsassignment.Status = dbo.tbl_status.StatusId LEFT OUTER JOIN dbo.UserMaster ON dbo.tbl_workitemsassignment.empid = dbo.UserMaster.empid where dbo.tbl_workitemsassignment.Status=5");
+        //    lbltaskcompleted.Text = taskcompleted.ToString();
+
+        //    int totalactivity = obj.GetDataCountFromTable("Select Count(*) as data from tbl_activity");
+        //    lbltotalactivity.Text = totalactivity.ToString();
+
+        //    int totalactivity_Active= obj.GetDataCountFromTable("Select Count(*) as data from tbl_activity where Isactive=1");
+        //    lblactiveactivity.Text = totalactivity_Active.ToString();
+
+
+        //}
+    }
 }

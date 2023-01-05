@@ -1,6 +1,6 @@
 ﻿namespace TMS.Reporting
 {
-    partial class StatusBasedReport
+    partial class AssigneeBasedReport
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatusBasedReport));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AssigneeBasedReport));
             this.panel1 = new System.Windows.Forms.Panel();
             this.picpdf = new System.Windows.Forms.PictureBox();
             this.picexcel = new System.Windows.Forms.PictureBox();
@@ -36,8 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dview = new System.Windows.Forms.DataGridView();
             this.btnsave = new System.Windows.Forms.Button();
-            this.cmbstatus = new System.Windows.Forms.ComboBox();
-            this.lblstatus = new System.Windows.Forms.Label();
+            this.cmbassignee = new System.Windows.Forms.ComboBox();
+            this.lblassignee = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picpdf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picexcel)).BeginInit();
@@ -51,8 +51,8 @@
             this.panel1.Controls.Add(this.picpdf);
             this.panel1.Controls.Add(this.picexcel);
             this.panel1.Controls.Add(this.groupBoxforeTaskBasedReport);
-            this.panel1.Controls.Add(this.cmbstatus);
-            this.panel1.Controls.Add(this.lblstatus);
+            this.panel1.Controls.Add(this.cmbassignee);
+            this.panel1.Controls.Add(this.lblassignee);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -95,7 +95,7 @@
             this.groupBoxforeTaskBasedReport.Size = new System.Drawing.Size(1023, 448);
             this.groupBoxforeTaskBasedReport.TabIndex = 16;
             this.groupBoxforeTaskBasedReport.TabStop = false;
-            this.groupBoxforeTaskBasedReport.Text = "Task Status Based Report";
+            this.groupBoxforeTaskBasedReport.Text = "Task Assignee Based Report";
             // 
             // label1
             // 
@@ -124,38 +124,38 @@
             this.btnsave.Text = "&Save";
             this.btnsave.UseVisualStyleBackColor = true;
             // 
-            // cmbstatus
+            // cmbassignee
             // 
-            this.cmbstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbstatus.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbstatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.cmbstatus.FormattingEnabled = true;
-            this.cmbstatus.Location = new System.Drawing.Point(395, 48);
-            this.cmbstatus.Name = "cmbstatus";
-            this.cmbstatus.Size = new System.Drawing.Size(296, 29);
-            this.cmbstatus.TabIndex = 9;
-            this.cmbstatus.SelectedIndexChanged += new System.EventHandler(this.cmbstatus_SelectedIndexChanged);
+            this.cmbassignee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbassignee.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbassignee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.cmbassignee.FormattingEnabled = true;
+            this.cmbassignee.Location = new System.Drawing.Point(395, 48);
+            this.cmbassignee.Name = "cmbassignee";
+            this.cmbassignee.Size = new System.Drawing.Size(296, 29);
+            this.cmbassignee.TabIndex = 9;
+            this.cmbassignee.SelectedIndexChanged += new System.EventHandler(this.cmbassignee_SelectedIndexChanged);
             // 
-            // lblstatus
+            // lblassignee
             // 
-            this.lblstatus.AutoSize = true;
-            this.lblstatus.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblstatus.Location = new System.Drawing.Point(264, 52);
-            this.lblstatus.Name = "lblstatus";
-            this.lblstatus.Size = new System.Drawing.Size(102, 19);
-            this.lblstatus.TabIndex = 8;
-            this.lblstatus.Text = "Select Status";
+            this.lblassignee.AutoSize = true;
+            this.lblassignee.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblassignee.Location = new System.Drawing.Point(264, 52);
+            this.lblassignee.Name = "lblassignee";
+            this.lblassignee.Size = new System.Drawing.Size(128, 19);
+            this.lblassignee.TabIndex = 8;
+            this.lblassignee.Text = "Select Assignee";
             // 
-            // StatusBasedReport
+            // AssigneeBasedReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1041, 597);
             this.Controls.Add(this.panel1);
-            this.Name = "StatusBasedReport";
-            this.Text = "Status Based Report";
-            this.Load += new System.EventHandler(this.StatusBasedReport_Load);
+            this.Name = "AssigneeBasedReport";
+            this.Text = "Assignee Based Report";
+            this.Load += new System.EventHandler(this.AssigneeBasedReport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picpdf)).EndInit();
@@ -171,8 +171,8 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dview;
-        private System.Windows.Forms.ComboBox cmbstatus;
-        private System.Windows.Forms.Label lblstatus;
+        private System.Windows.Forms.ComboBox cmbassignee;
+        private System.Windows.Forms.Label lblassignee;
         private System.Windows.Forms.GroupBox groupBoxforeTaskBasedReport;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnsave;

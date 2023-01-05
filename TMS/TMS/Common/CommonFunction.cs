@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Text;
 using System.Security.Cryptography;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace TMS.App_Code
 {
@@ -104,6 +105,31 @@ namespace TMS.App_Code
 
             }
         }
+
+        public DataSet getworkassignmentitems(bool filterflag = false)
+        {
+            DataSet ds = new DataSet();
+            if (Con.State == ConnectionState.Closed)
+            {
+                Con.Open();
+            }
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "getworkassignmentitems";
+            cmd.Connection = Con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            if (filterflag)
+            {
+                cmd.Parameters.Add("@filterflag", SqlDbType.Int).Value = 1;
+            }
+            else
+            {
+                cmd.Parameters.Add("@filterflag", SqlDbType.Int).Value = 0;
+            }
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            da.Fill(ds);
+            return ds;
+        }
         public void addworkitem(int activityid, int taskid, int subtaskid, string remark)
         {
             if (Con.State == ConnectionState.Closed)
@@ -123,7 +149,7 @@ namespace TMS.App_Code
 
 
 
-        public void addworkassignmentitem(int id, int workitemid, int empid, int status)
+        public void addworkassignmentitem(int id, int workitemid, int empid, int status, string remarks)
         {
             if (Con.State == ConnectionState.Closed)
             {
@@ -137,6 +163,7 @@ namespace TMS.App_Code
             cmd.Parameters.Add("@assigmentitemId", SqlDbType.Int).Value = workitemid;
             cmd.Parameters.Add("@empid", SqlDbType.Int).Value = empid;
             cmd.Parameters.Add("@status", SqlDbType.NVarChar).Value = status;
+            cmd.Parameters.Add("@remarks", SqlDbType.NVarChar).Value = remarks;
             cmd.ExecuteNonQuery();
         }
         public void FireQuery(string Query)
@@ -175,9 +202,9 @@ namespace TMS.App_Code
             return maxid;
 
         }
-        public string GetEmpnameandID(string tablename, string fieldname,int empid)
+        public string GetEmpnameandID(string tablename, string fieldname, int empid)
         {
-            var value="";
+            var value = "";
 
             if (Con.State == ConnectionState.Closed)
             {
@@ -186,14 +213,14 @@ namespace TMS.App_Code
             string selectcmd;
             SqlDataAdapter Adapter = new SqlDataAdapter();
             DataSet ds = new DataSet();
-            selectcmd = "Select Max(" + fieldname + ") maxid from " + tablename + " where empid="+ empid + "";
+            selectcmd = "Select Max(" + fieldname + ") maxid from " + tablename + " where empid=" + empid + "";
             cmd = new SqlCommand(selectcmd, Con);
             Adapter.SelectCommand = cmd;
             Adapter.Fill(ds);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 value = ds.Tables[0].Rows[0]["maxid"].ToString();
-               
+
 
             }
             return value;
@@ -213,6 +240,22 @@ namespace TMS.App_Code
             Adapter.SelectCommand = cmd;
             Adapter.Fill(DS);
             return DS;
+
+        }
+        public int GetDataCountFromTable(string Query)
+        {
+            if (Con.State == ConnectionState.Closed)
+            {
+                Con.Open();
+            }
+            string selectCmd;
+            SqlDataAdapter Adapter = new SqlDataAdapter();
+            DataSet DS = new DataSet();
+            selectCmd = Query;
+            cmd = new SqlCommand(selectCmd, Con);
+            Adapter.SelectCommand = cmd;
+            Adapter.Fill(DS);
+            return Convert.ToInt32(DS.Tables[0].Rows[0]["data"]);
 
         }
         public string encrypt(string encryptString)
@@ -262,7 +305,7 @@ namespace TMS.App_Code
                         cipherText = Encoding.Unicode.GetString(ms.ToArray());
                     }
                 }
-               
+
             }
             catch (Exception ex)
             {
