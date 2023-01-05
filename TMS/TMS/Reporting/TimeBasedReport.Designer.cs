@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimeBasedReport));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.lblenddate = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.picpdf = new System.Windows.Forms.PictureBox();
             this.picexcel = new System.Windows.Forms.PictureBox();
             this.groupBoxforeTaskBasedReport = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dview = new System.Windows.Forms.DataGridView();
             this.btnsave = new System.Windows.Forms.Button();
-            this.lblassignee = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblstartdate = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picpdf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picexcel)).BeginInit();
@@ -51,22 +51,50 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.dateTimePicker2);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblenddate);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.picpdf);
             this.panel1.Controls.Add(this.picexcel);
             this.panel1.Controls.Add(this.groupBoxforeTaskBasedReport);
-            this.panel1.Controls.Add(this.lblassignee);
+            this.panel1.Controls.Add(this.lblstartdate);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1041, 597);
+            this.panel1.Size = new System.Drawing.Size(1119, 639);
             this.panel1.TabIndex = 4;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "dd-MMM-yy";
+            this.dateTimePicker2.Location = new System.Drawing.Point(424, 74);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 24;
+            // 
+            // lblenddate
+            // 
+            this.lblenddate.AutoSize = true;
+            this.lblenddate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblenddate.Location = new System.Drawing.Point(337, 74);
+            this.lblenddate.Name = "lblenddate";
+            this.lblenddate.Size = new System.Drawing.Size(78, 19);
+            this.lblenddate.TabIndex = 23;
+            this.lblenddate.Text = "End Date";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.dateTimePicker1.CustomFormat = "dd-MMM-yy";
+            this.dateTimePicker1.Location = new System.Drawing.Point(424, 36);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 22;
             // 
             // picpdf
             // 
             this.picpdf.Image = ((System.Drawing.Image)(resources.GetObject("picpdf.Image")));
-            this.picpdf.Location = new System.Drawing.Point(943, 108);
+            this.picpdf.Location = new System.Drawing.Point(964, 88);
             this.picpdf.Name = "picpdf";
             this.picpdf.Size = new System.Drawing.Size(37, 33);
             this.picpdf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -78,7 +106,7 @@
             // picexcel
             // 
             this.picexcel.Image = ((System.Drawing.Image)(resources.GetObject("picexcel.Image")));
-            this.picexcel.Location = new System.Drawing.Point(887, 108);
+            this.picexcel.Location = new System.Drawing.Point(908, 88);
             this.picexcel.Name = "picexcel";
             this.picexcel.Size = new System.Drawing.Size(37, 33);
             this.picexcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -94,9 +122,9 @@
             this.groupBoxforeTaskBasedReport.Controls.Add(this.dview);
             this.groupBoxforeTaskBasedReport.Controls.Add(this.btnsave);
             this.groupBoxforeTaskBasedReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxforeTaskBasedReport.Location = new System.Drawing.Point(12, 137);
+            this.groupBoxforeTaskBasedReport.Location = new System.Drawing.Point(12, 126);
             this.groupBoxforeTaskBasedReport.Name = "groupBoxforeTaskBasedReport";
-            this.groupBoxforeTaskBasedReport.Size = new System.Drawing.Size(1023, 448);
+            this.groupBoxforeTaskBasedReport.Size = new System.Drawing.Size(1097, 506);
             this.groupBoxforeTaskBasedReport.TabIndex = 16;
             this.groupBoxforeTaskBasedReport.TabStop = false;
             this.groupBoxforeTaskBasedReport.Text = "Task Assignee Based Report";
@@ -116,7 +144,7 @@
             this.dview.GridColor = System.Drawing.Color.Gray;
             this.dview.Location = new System.Drawing.Point(6, 25);
             this.dview.Name = "dview";
-            this.dview.Size = new System.Drawing.Size(1006, 414);
+            this.dview.Size = new System.Drawing.Size(1083, 472);
             this.dview.TabIndex = 0;
             // 
             // btnsave
@@ -128,50 +156,22 @@
             this.btnsave.Text = "&Save";
             this.btnsave.UseVisualStyleBackColor = true;
             // 
-            // lblassignee
+            // lblstartdate
             // 
-            this.lblassignee.AutoSize = true;
-            this.lblassignee.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblassignee.Location = new System.Drawing.Point(337, 36);
-            this.lblassignee.Name = "lblassignee";
-            this.lblassignee.Size = new System.Drawing.Size(81, 19);
-            this.lblassignee.TabIndex = 8;
-            this.lblassignee.Text = "Start Date";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.dateTimePicker1.CustomFormat = "dd-MMM-yy";
-            this.dateTimePicker1.Location = new System.Drawing.Point(424, 36);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 22;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CustomFormat = "dd-MMM-yy";
-            this.dateTimePicker2.Location = new System.Drawing.Point(424, 74);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 24;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(337, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 19);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "End Date";
+            this.lblstartdate.AutoSize = true;
+            this.lblstartdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblstartdate.Location = new System.Drawing.Point(337, 36);
+            this.lblstartdate.Name = "lblstartdate";
+            this.lblstartdate.Size = new System.Drawing.Size(81, 19);
+            this.lblstartdate.TabIndex = 8;
+            this.lblstartdate.Text = "Start Date";
             // 
             // TimeBasedReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1041, 597);
+            this.ClientSize = new System.Drawing.Size(1119, 639);
             this.Controls.Add(this.panel1);
             this.Name = "TimeBasedReport";
             this.Text = "Assignee Based Report";
@@ -191,14 +191,14 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dview;
-        private System.Windows.Forms.Label lblassignee;
+        private System.Windows.Forms.Label lblstartdate;
         private System.Windows.Forms.GroupBox groupBoxforeTaskBasedReport;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnsave;
         private System.Windows.Forms.PictureBox picexcel;
         private System.Windows.Forms.PictureBox picpdf;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblenddate;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

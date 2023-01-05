@@ -56,13 +56,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1041, 597);
+            this.panel1.Size = new System.Drawing.Size(1119, 639);
             this.panel1.TabIndex = 4;
             // 
             // picpdf
             // 
             this.picpdf.Image = ((System.Drawing.Image)(resources.GetObject("picpdf.Image")));
-            this.picpdf.Location = new System.Drawing.Point(943, 108);
+            this.picpdf.Location = new System.Drawing.Point(1037, 90);
             this.picpdf.Name = "picpdf";
             this.picpdf.Size = new System.Drawing.Size(37, 33);
             this.picpdf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -74,7 +74,7 @@
             // picexcel
             // 
             this.picexcel.Image = ((System.Drawing.Image)(resources.GetObject("picexcel.Image")));
-            this.picexcel.Location = new System.Drawing.Point(887, 108);
+            this.picexcel.Location = new System.Drawing.Point(981, 90);
             this.picexcel.Name = "picexcel";
             this.picexcel.Size = new System.Drawing.Size(37, 33);
             this.picexcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -90,12 +90,13 @@
             this.groupBoxforeTaskBasedReport.Controls.Add(this.dview);
             this.groupBoxforeTaskBasedReport.Controls.Add(this.btnsave);
             this.groupBoxforeTaskBasedReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxforeTaskBasedReport.Location = new System.Drawing.Point(12, 137);
+            this.groupBoxforeTaskBasedReport.Location = new System.Drawing.Point(12, 126);
             this.groupBoxforeTaskBasedReport.Name = "groupBoxforeTaskBasedReport";
-            this.groupBoxforeTaskBasedReport.Size = new System.Drawing.Size(1023, 448);
+            this.groupBoxforeTaskBasedReport.Size = new System.Drawing.Size(1100, 504);
             this.groupBoxforeTaskBasedReport.TabIndex = 16;
             this.groupBoxforeTaskBasedReport.TabStop = false;
             this.groupBoxforeTaskBasedReport.Text = "Task Assignee Based Report";
+            this.groupBoxforeTaskBasedReport.Enter += new System.EventHandler(this.groupBoxforeTaskBasedReport_Enter);
             // 
             // label1
             // 
@@ -112,7 +113,7 @@
             this.dview.GridColor = System.Drawing.Color.Gray;
             this.dview.Location = new System.Drawing.Point(6, 25);
             this.dview.Name = "dview";
-            this.dview.Size = new System.Drawing.Size(1006, 414);
+            this.dview.Size = new System.Drawing.Size(1086, 470);
             this.dview.TabIndex = 0;
             // 
             // btnsave
@@ -130,7 +131,7 @@
             this.cmbassignee.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbassignee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.cmbassignee.FormattingEnabled = true;
-            this.cmbassignee.Location = new System.Drawing.Point(395, 48);
+            this.cmbassignee.Location = new System.Drawing.Point(457, 48);
             this.cmbassignee.Name = "cmbassignee";
             this.cmbassignee.Size = new System.Drawing.Size(296, 29);
             this.cmbassignee.TabIndex = 9;
@@ -140,7 +141,7 @@
             // 
             this.lblassignee.AutoSize = true;
             this.lblassignee.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblassignee.Location = new System.Drawing.Point(264, 52);
+            this.lblassignee.Location = new System.Drawing.Point(326, 52);
             this.lblassignee.Name = "lblassignee";
             this.lblassignee.Size = new System.Drawing.Size(128, 19);
             this.lblassignee.TabIndex = 8;
@@ -151,7 +152,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1041, 597);
+            this.ClientSize = new System.Drawing.Size(1119, 639);
             this.Controls.Add(this.panel1);
             this.Name = "AssigneeBasedReport";
             this.Text = "Assignee Based Report";

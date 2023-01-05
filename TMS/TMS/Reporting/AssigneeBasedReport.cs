@@ -225,5 +225,10 @@ namespace TMS.Reporting
             tt_pdf.SetToolTip(this.picexcel, "Export into PDF");
             tt_pdf.ForeColor = Color.Yellow;
         }
+
+        private void groupBoxforeTaskBasedReport_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

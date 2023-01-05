@@ -34,8 +34,8 @@ namespace TMS.Reporting
                 }
             }
           
-            lblassignee.ForeColor = ThemeColor.PrimaryColor;
-            //lblexport.ForeColor = ThemeColor.PrimaryColor;
+            lblstartdate.ForeColor = ThemeColor.PrimaryColor;
+            lblenddate.ForeColor = ThemeColor.PrimaryColor;
             dview.ForeColor = ThemeColor.PrimaryColor;
             groupBoxforeTaskBasedReport.ForeColor = ThemeColor.PrimaryColor;
         }
